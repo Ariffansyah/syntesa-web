@@ -1,9 +1,9 @@
 import { MetaFunction } from "@remix-run/node";
 import Hero from "~/components/home/Hero";
 import JoinCard from "~/components/home/JoinCard";
-import Partners from "~/components/home/Partners";
-import Projects from "~/components/home/Projects";
-import StudyClubs from "~/components/home/StudyClubs";
+import Partners, { TypePartner } from "~/components/home/Partners";
+import Projects, { TypeProject } from "~/components/home/Projects";
+import StudyClubs, { TypeStudyClub } from "~/components/home/StudyClubs";
 import Layout from "~/components/Layout";
 
 export const meta: MetaFunction = () => {
@@ -13,7 +13,7 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-const studyClubs = [
+const studyClubs: TypeStudyClub[] = [
   {
     name: "Web Development",
     description: "Master modern web development technologies and build responsive, scalable applications. Learn from industry and work on real-world projects.",
@@ -77,7 +77,7 @@ const getClubSchedule = (clubName: string) => {
   return schedules[clubName as keyof typeof schedules];
 };
 
-const latestProjects = [
+const latestProjects: TypeProject[] = [
   {
     title: "AI-Powered Traffic Management",
     description: "Developing intelligent systems for optimizing urban traffic flow",
@@ -98,7 +98,7 @@ const latestProjects = [
   }
 ];
 
-const partnerships = [
+const partnerships: TypePartner[] = [
   {
     name: "DataCamp",
     logo: "https://www.datacamp.com/datacamp-logo.svg",

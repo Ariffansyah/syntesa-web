@@ -1,11 +1,16 @@
-interface Partner {
-    name: string;
-    logo: string;
-    description: string;
-    category: string;
+export type PartnerCategory = "Education" | "Infrastructure" | "Technology";
+
+export interface TypePartner {
+    readonly name: string;
+    readonly logo: string;
+    readonly description: string;
+    readonly category: PartnerCategory;
+}
+interface PartnersProps {
+    readonly partners: readonly TypePartner[];
 }
 
-export default function Partners(props: { partners: Partner[] }) {
+export default function Partners(props: PartnersProps) {
     return (
         <section
             aria-labelledby="partners-heading"

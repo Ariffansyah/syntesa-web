@@ -1,31 +1,44 @@
-interface Project {
-    title: string;
-    description: string;
-    status: "Completed" | "Planning" | "Ongoing";
-    progress: number;
+export type ProjectStatus = "Completed" | "Planning" | "Ongoing";
+
+export interface TypeProject {
+    readonly title: string;
+    readonly description: string;
+    readonly status: ProjectStatus;
+    readonly progress: number;
 }
 
-const getStatusIcon = (status: Project['status']) => {
-    switch (status) {
-        case 'Completed':
-            return (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            );
-        case 'Planning':
-            return (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                    d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-            );
-        default:
-            return (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                    d="M19 9l-7 7-7-7" />
-            );
-    }
+interface ProjectsProps {
+    readonly latestProjects: readonly TypeProject[];
+}
+
+type StatusIconData = Record<ProjectStatus, JSX.Element>;
+
+const STATUS_ICONS: StatusIconData = {
+    'Completed': (
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+    ),
+    'Planning': (
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+            d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+    ),
+    'Ongoing': (
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+            d="M19 9l-7 7-7-7" />
+    )
+} as const;
+
+const STATUS_STYLES: Record<ProjectStatus, string> = {
+    'Completed': 'bg-green-100 text-green-800 dark:bg-green-800/30 dark:text-green-400',
+    'Planning': 'bg-yellow-100 text-yellow-800 dark:bg-yellow-800/30 dark:text-yellow-400',
+    'Ongoing': 'bg-blue-100 text-blue-800 dark:bg-blue-800/30 dark:text-blue-400'
+} as const;
+
+const getStatusIcon = (status: ProjectStatus): JSX.Element => {
+    return STATUS_ICONS[status];
 };
 
-export default function Projects(props: { latestProjects: Project[] }) {
+export default function Projects(props: ProjectsProps) {
     return (
         <section
             aria-labelledby="projects-heading"
@@ -119,12 +132,7 @@ export default function Projects(props: { latestProjects: Project[] }) {
                                         <span
                                             role="status"
                                             className={`px-2 sm:px-3 py-1 rounded-full text-xs font-medium
-                                                ${project.status === 'Completed'
-                                                    ? 'bg-green-100 text-green-800 dark:bg-green-800/30 dark:text-green-400'
-                                                    : project.status === 'Planning'
-                                                        ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-800/30 dark:text-yellow-400'
-                                                        : 'bg-blue-100 text-blue-800 dark:bg-blue-800/30 dark:text-blue-400'
-                                                }`}
+                                            ${STATUS_STYLES[project.status]}`}
                                         >
                                             {project.status}
                                         </span>

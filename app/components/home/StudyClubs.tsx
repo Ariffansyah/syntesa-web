@@ -1,10 +1,21 @@
-interface StudyClub {
-    name: string;
-    description: string;
-    icon: JSX.Element;
+export type ClubName = "Web Development" | "Data Science" | "DevOps" | "System Administration";
+
+export interface TypeStudyClub {
+    readonly name: ClubName;
+    readonly description: string;
+    readonly icon: JSX.Element;
 }
 
-export default function StudyClubs(props: { studyClubs: StudyClub[], getClubDetails: (club: string) => string[], getClubSchedule: (club: string) => string }) {
+export type ClubDetails = Record<ClubName, readonly string[]>;
+export type ClubSchedules = Record<ClubName, string>;
+
+interface StudyClubsProps {
+    studyClubs: readonly TypeStudyClub[];
+    getClubDetails: (club: ClubName) => string[];
+    getClubSchedule: (club: ClubName) => string;
+}
+
+export default function StudyClubs(props: StudyClubsProps) {
     return (
         <div className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-900/50 dark:to-black pb-24 pt-16">
             <div className="max-w-6xl mx-auto px-4 sm:px-6">
