@@ -1,3 +1,8 @@
+import { type ComponentType, SVGProps } from 'react';
+import { BsCheckCircle } from 'react-icons/bs';
+import { HiPlus } from 'react-icons/hi';
+import { HiChevronDown } from 'react-icons/hi2';
+
 export type ProjectStatus = "Completed" | "Planning" | "Ongoing";
 
 export interface TypeProject {
@@ -11,21 +16,13 @@ interface ProjectsProps {
     readonly latestProjects: readonly TypeProject[];
 }
 
-type StatusIconData = Record<ProjectStatus, JSX.Element>;
+type IconType = ComponentType<SVGProps<SVGSVGElement>>;
+type StatusIconData = Record<ProjectStatus, IconType>;
 
 const STATUS_ICONS: StatusIconData = {
-    'Completed': (
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-    ),
-    'Planning': (
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-            d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-    ),
-    'Ongoing': (
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-            d="M19 9l-7 7-7-7" />
-    )
+    'Completed': BsCheckCircle,
+    'Planning': HiPlus,
+    'Ongoing': HiChevronDown
 } as const;
 
 const STATUS_STYLES: Record<ProjectStatus, string> = {
@@ -34,7 +31,7 @@ const STATUS_STYLES: Record<ProjectStatus, string> = {
     'Ongoing': 'bg-blue-100 text-blue-800 dark:bg-blue-800/30 dark:text-blue-400'
 } as const;
 
-const getStatusIcon = (status: ProjectStatus): JSX.Element => {
+const getStatusIcon = (status: ProjectStatus): React.ComponentType => {
     return STATUS_ICONS[status];
 };
 
@@ -42,8 +39,8 @@ export default function Projects(props: ProjectsProps) {
     return (
         <section
             aria-labelledby="projects-heading"
-            className="bg-gradient-to-b from-gray-50 via-white to-gray-50
-                dark:from-gray-900/50 dark:via-black dark:to-gray-900/50 py-16 sm:py-24"
+            className="bg-gradient-to-b from-white via-gray-50 to-white
+                     dark:from-black dark:via-gray-900 dark:to-black py-16 sm:py-24"
         >
             <div className="max-w-6xl mx-auto px-4 sm:px-6">
                 <header className="text-center mb-12 sm:mb-16">
@@ -81,14 +78,14 @@ export default function Projects(props: ProjectsProps) {
                                     <div
                                         aria-hidden="true"
                                         className="w-10 h-10 sm:w-12 sm:h-12 mb-4 rounded-xl bg-gradient-to-br
-                                            from-gray-900 to-gray-700 dark:from-white dark:to-gray-300
-                                            flex items-center justify-center transform
-                                            group-hover:rotate-6 transition-transform duration-300"
+        from-gray-900 to-gray-700 dark:from-white dark:to-gray-300
+        flex items-center justify-center transform
+        group-hover:rotate-6 transition-transform duration-300"
                                     >
-                                        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white dark:text-gray-900"
-                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            {getStatusIcon(project.status)}
-                                        </svg>
+                                        {(() => {
+                                            const StatusIcon = STATUS_ICONS[project.status];
+                                            return <StatusIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white dark:text-gray-900" />;
+                                        })()}
                                     </div>
 
                                     <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-2 line-clamp-1">

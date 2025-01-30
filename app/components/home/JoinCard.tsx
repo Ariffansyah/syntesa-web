@@ -1,8 +1,30 @@
+import { useState } from "react";
+
 interface Benefit {
     title: string;
     description: string;
     icon: JSX.Element;
 }
+
+interface FAQ {
+    question: string;
+    answer: string;
+}
+
+const faqs: FAQ[] = [
+    {
+        question: "What's the application process?",
+        answer: "Our application process consists of three steps: online application submission, technical assessment, and team interview. The entire process typically takes 2-3 weeks."
+    },
+    {
+        question: "What are the prerequisites?",
+        answer: "Basic programming knowledge, strong problem-solving skills, and passion for technology. Specific requirements vary by study club."
+    },
+    {
+        question: "When can I start?",
+        answer: "New members can join at the beginning of each semester. The next intake starts in May 2025."
+    }
+];
 
 const benefits: Benefit[] = [
     {
@@ -40,10 +62,16 @@ const benefits: Benefit[] = [
 ];
 
 export default function JoinCard() {
+    const [activeTab, setActiveTab] = useState<'benefits' | 'faqs'>('benefits');
+    const [expandedFaq, setExpandedFaq] = useState<string | null>(null);
+    const [selectedBenefit, setSelectedBenefit] = useState<string | null>(null);
+
     return (
         <section
             aria-labelledby="join-heading"
-            className="relative overflow-hidden px-4 sm:px-6"
+            className="relative overflow-hidden px-4 sm:px-6 pb-16 sm:pb-24
+                        bg-gradient-to-b from-white via-gray-50 to-white
+                        dark:from-black dark:via-gray-900 dark:to-black"
         >
             {/* Background Pattern */}
             <div
@@ -83,48 +111,126 @@ export default function JoinCard() {
                                 </p>
                             </header>
 
-                            {/* Benefits Grid */}
-                            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6" role="list">
-                                {benefits.map((benefit) => (
-                                    <li key={benefit.title} className="group">
-                                        <article className="flex items-start space-x-4 p-4 rounded-xl
-                                            bg-white/50 dark:bg-gray-800/30 border border-gray-200/50 dark:border-gray-700/30
-                                            hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors duration-300">
-                                            <div className="flex-shrink-0">
-                                                <div
-                                                    aria-hidden="true"
-                                                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-apple-blue-500/10 dark:bg-apple-blue-400/10
-                                                        flex items-center justify-center
-                                                        group-hover:bg-apple-blue-500/20 dark:group-hover:bg-apple-blue-400/20
-                                                        transition-colors duration-300"
-                                                >
-                                                    <svg
-                                                        className="w-4 h-4 sm:w-5 sm:h-5 text-apple-blue-600 dark:text-apple-blue-400"
-                                                        fill="none"
-                                                        viewBox="0 0 24 24"
-                                                        stroke="currentColor"
-                                                        aria-hidden="true"
-                                                    >
-                                                        {benefit.icon}
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <h3 className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">
-                                                    {benefit.title}
-                                                </h3>
-                                                <p className="text-sm text-gray-500 dark:text-gray-400">
-                                                    {benefit.description}
-                                                </p>
-                                            </div>
-                                        </article>
-                                    </li>
+                            {/* Tab Navigation */}
+                            <div className="flex space-x-2 p-1 bg-gray-100 dark:bg-gray-800/50 rounded-lg">
+                                {['benefits', 'faqs'].map((tab) => (
+                                    <button
+                                        key={tab}
+                                        onClick={() => setActiveTab(tab as 'benefits' | 'faqs')}
+                                        className={`flex-1 px-4 py-2 text-sm font-medium rounded-md transition-all duration-300
+                                            ${activeTab === tab
+                                                ? 'bg-white dark:bg-gray-700 shadow-sm text-gray-900 dark:text-white'
+                                                : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
+                                            }`}
+                                    >
+                                        {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                                    </button>
                                 ))}
-                            </ul>
+                            </div>
+
+                            {/* Content Panels */}
+                            <div className="relative overflow-hidden">
+                                <div className="transition-all duration-300 flex">
+                                    {/* Benefits Panel */}
+                                    <div
+                                        className={`w-full flex-shrink-0 transition-all duration-300 transform
+                                            ${activeTab === 'benefits' ? 'translate-x-0' : '-translate-x-full'}`}
+                                    >
+                                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                                            {benefits.map((benefit) => (
+                                                <li
+                                                    key={benefit.title}
+                                                    onClick={() => setSelectedBenefit(benefit.title)}
+                                                    className={`group cursor-pointer transform transition-all duration-300
+                                                        hover:scale-[1.02] active:scale-[0.98]
+                                                        ${selectedBenefit === benefit.title
+                                                            ? 'ring-2 ring-apple-blue-500 dark:ring-apple-blue-400'
+                                                            : ''
+                                                        }`}
+                                                >
+                                                    <article className="flex items-start space-x-4 p-4 rounded-xl
+                        bg-white/50 dark:bg-gray-800/30 border border-gray-200/50 dark:border-gray-700/30
+                        hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors duration-300">
+                                                        <div className="flex-shrink-0">
+                                                            <div
+                                                                aria-hidden="true"
+                                                                className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-apple-blue-500/10 dark:bg-apple-blue-400/10
+                                    flex items-center justify-center
+                                    group-hover:bg-apple-blue-500/20 dark:group-hover:bg-apple-blue-400/20
+                                    transition-colors duration-300"
+                                                            >
+                                                                <svg
+                                                                    className="w-4 h-4 sm:w-5 sm:h-5 text-apple-blue-600 dark:text-apple-blue-400"
+                                                                    fill="none"
+                                                                    viewBox="0 0 24 24"
+                                                                    stroke="currentColor"
+                                                                    aria-hidden="true"
+                                                                >
+                                                                    {benefit.icon}
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <h3 className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">
+                                                                {benefit.title}
+                                                            </h3>
+                                                            <p className="text-sm text-gray-500 dark:text-gray-400">
+                                                                {benefit.description}
+                                                            </p>
+                                                        </div>
+                                                    </article>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    {/* FAQs Panel */}
+                                    <div
+                                        className={`w-full flex-shrink-0 transition-all duration-300 transform
+                                            ${activeTab === 'faqs' ? 'translate-x-[-100%]' : 'translate-x-0'}`}
+                                    >
+                                        <div className="space-y-4">
+                                            {faqs.map((faq) => (
+                                                <div
+                                                    key={faq.question}
+                                                    className="border border-gray-200/50 dark:border-gray-700/30 rounded-lg overflow-hidden"
+                                                >
+                                                    <button
+                                                        onClick={() => setExpandedFaq(
+                                                            expandedFaq === faq.question ? null : faq.question
+                                                        )}
+                                                        className="w-full px-4 py-3 text-left flex justify-between items-center
+                                                        hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors duration-300"
+                                                    >
+                                                        <span className="font-medium">{faq.question}</span>
+                                                        <svg
+                                                            className={`w-5 h-5 transition-transform duration-300
+                                                            ${expandedFaq === faq.question ? 'rotate-180' : ''}`}
+                                                            fill="none"
+                                                            viewBox="0 0 24 24"
+                                                            stroke="currentColor"
+                                                        >
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                                        </svg>
+                                                    </button>
+                                                    <div
+                                                        className={`transition-all duration-300 overflow-hidden
+                                                        ${expandedFaq === faq.question ? 'max-h-40' : 'max-h-0'}`}
+                                                    >
+                                                        <p className="px-4 pb-3 text-gray-600 dark:text-gray-400">
+                                                            {faq.answer}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         {/* Right Column - Application Card */}
-                        <aside className="relative mt-8 lg:mt-0">
+                        <aside className="relative mt-8 lg:mt-0 transform transition-all duration-300">
                             <div
                                 aria-hidden="true"
                                 className="absolute inset-0 bg-gradient-to-r from-gray-900 to-gray-600
