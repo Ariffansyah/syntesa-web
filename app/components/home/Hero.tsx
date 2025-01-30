@@ -2,7 +2,7 @@ import AnimatedCounter from '~/components/AnimatedCounter';
 
 export default function Hero() {
     return (
-        <section aria-labelledby="hero-heading" className="relative pt-16 sm:pt-20 pb-12 sm:pb-16 overflow-hidden">
+        <section aria-labelledby="hero-heading" className="relative pt-32 sm:pt-36 pb-12 sm:pb-16 overflow-hidden">
             {/* Background decorative elements */}
             <div className="absolute inset-0">
                 {/* Base gradient */}
@@ -46,7 +46,7 @@ export default function Hero() {
             </div>
 
             {/* Content */}
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 z-10">
+            <div className="relative max-w-6xl mx-auto px-4 sm:px-6 z-10">
                 <div className="relative">
                     {/* Decorative gradient */}
                     <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px]
@@ -79,11 +79,6 @@ export default function Hero() {
                                 <br />
                                 <span className="inline-block relative" style={{ animationDelay: '400ms' }}>
                                     Laboratory
-                                    <svg className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-40 h-4 text-apple-blue-500/30 dark:text-apple-blue-400/30"
-                                        viewBox="0 0 208 9"
-                                        aria-hidden="true">
-                                        <path fill="currentColor" d="M5.68 8C37.14 6.35 68.16 5.03 99.18 4.26c31.02-.77 62.04-.98 93.5.43 3.04.14 6.08.3 9.12.47.37.02.7-.27.72-.64.02-.37-.27-.7-.64-.72-31.02-1.41-61.6-1.2-92.18-.43C78.8 4.1 47.78 5.42 16.32 7.07c-3.04.16-6.08.33-9.12.51-.37.02-.66.35-.64.72.02.35.32.63.67.63l-.37-.93h.18-.36z" />
-                                    </svg>
                                 </span>
                             </h1>
                             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300

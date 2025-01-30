@@ -18,7 +18,7 @@ export default function Partners(props: PartnersProps) {
         <section
             aria-labelledby="partners-heading"
             className="relative py-12 sm:py-16 border-t border-gray-200/10 dark:border-gray-700/10
-                        bg-gradient-to-b from-white via-gray-50 to-white dark:from-black dark:via-gray-900 dark:to-black"
+                        bg-gradient-to-b from-white via-gray-50 to-white dark:from-black dark:via-gray-900 dark:to-black overflow-hidden"
         >
             {/* Decorative gradient overlay */}
             <div
@@ -27,7 +27,7 @@ export default function Partners(props: PartnersProps) {
                     dark:from-black/80 dark:via-transparent dark:to-black/80 z-10 pointer-events-none"
             />
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6">
                 <header className="text-center mb-8 sm:mb-12">
                     <h2
                         id="partners-heading"
@@ -44,7 +44,7 @@ export default function Partners(props: PartnersProps) {
                 <div className="relative pb-8" role="region" aria-label="Partner companies">
                     {/* First Row */}
                     <ul className="flex space-x-8 sm:space-x-16 animate-slide-left">
-                        {[...props.partners, ...props.partners].map((partner, index) => (
+                        {[...props.partners, ...props.partners, ...props.partners, ...props.partners].map((partner, index) => (
                             <li
                                 key={`${partner.name}-${index}`}
                                 className="flex-shrink-0 group relative"
@@ -53,7 +53,7 @@ export default function Partners(props: PartnersProps) {
                                 rounded-xl border border-gray-200/50 dark:border-gray-700/30
                                 flex items-center justify-center p-4 sm:p-6
                                 transition-all duration-500
-                                hover:shadow-lg hover:scale-105 hover:rotate-1
+                                hover:shadow-lg hover:scale-105
                                 group-hover:border-apple-blue-500/50">
                                     <partner.icon className="w-8 h-8 sm:w-10 sm:h-10 text-gray-400 dark:text-gray-500
                                     group-hover:text-gray-900 dark:group-hover:text-white
@@ -85,7 +85,7 @@ export default function Partners(props: PartnersProps) {
 
                     {/* Second Row */}
                     <ul className="flex space-x-8 sm:space-x-16 mt-4 sm:mt-8 animate-slide-right">
-                        {[...props.partners, ...props.partners].map((partner, index) => (
+                        {[...props.partners, ...props.partners, ...props.partners, ...props.partners].map((partner, index) => (
                             <li
                                 key={`${partner.name}-${index}-row2`}
                                 className="flex-shrink-0 group relative"

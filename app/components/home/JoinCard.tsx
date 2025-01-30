@@ -69,7 +69,7 @@ export default function JoinCard() {
     return (
         <section
             aria-labelledby="join-heading"
-            className="relative overflow-hidden px-4 sm:px-6 pb-16 sm:pb-24
+            className="relative overflow-hidden pb-16 sm:pb-24
                         bg-gradient-to-b from-white via-gray-50 to-white
                         dark:from-black dark:via-gray-900 dark:to-black"
         >
@@ -80,7 +80,7 @@ export default function JoinCard() {
                     from-apple-blue-500/[0.03] via-transparent to-transparent"
             />
 
-            <div className="max-w-6xl mx-auto py-16 sm:py-24 lg:py-32">
+            <div className="max-w-6xl mx-auto px-4 sm:px-8 py-16 sm:py-24 lg:py-32">
                 <div className="relative">
                     {/* Decorative Elements */}
                     <div
