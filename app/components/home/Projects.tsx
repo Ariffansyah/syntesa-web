@@ -37,8 +37,7 @@ export default function Projects(props: ProjectsProps) {
             aria-labelledby="projects-heading"
             className="bg-gradient-to-b from-white via-gray-50 to-white
                         dark:from-slate-950 dark:via-slate-900 dark:to-slate-950
-                     py-16 sm:py-24 border-t border-gray-200/10 dark:border-slate-800/50
-                     relative overflow-hidden"
+                     py-16 sm:py-24 relative overflow-hidden"
         >
             {/* Background decorative elements */}
             <div className="absolute inset-0">

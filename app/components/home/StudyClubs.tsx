@@ -22,7 +22,7 @@ export default function StudyClubs(props: StudyClubsProps) {
     return (
         <div className="relative bg-gradient-to-b from-white via-gray-50 to-white
                         dark:from-slate-950 dark:via-slate-900 dark:to-slate-950
-                        pb-24 pt-16 overflow-hidden border-t border-gray-200/10 dark:border-slate-800/50">
+                        pb-24 pt-16 overflow-hidden">
             {/* Abstract Background */}
             <div className="absolute inset-0" aria-hidden="true">
                 {/* SVG Pattern Background */}
