@@ -39,9 +39,9 @@ export default function Footer({ socialLinks }: FooterProps) {
                         {/* Social Links */}
                         <div className="flex space-x-4">
                             {socialLinks.map((item) => (
-                                <a
+                                <Link
                                     key={item.name}
-                                    href={item.href}
+                                    to={item.href}
                                     className="group relative p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800/50 transition-all duration-300"
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -53,7 +53,7 @@ export default function Footer({ socialLinks }: FooterProps) {
                                     <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
                                         {item.name}
                                     </span>
-                                </a>
+                                </Link>
                             ))}
                         </div>
                     </div>
@@ -77,28 +77,28 @@ export default function Footer({ socialLinks }: FooterProps) {
                                                 Surabaya, Indonesia
                                             </p>
 
-                                            <a
-                                                href="https://maps.app.goo.gl/SPnszsaV74MFWKKA9"
+                                            <Link
+                                                to="https://maps.app.goo.gl/SPnszsaV74MFWKKA9"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="inline-flex items-center space-x-2 text-sm text-apple-blue-600 dark:text-apple-blue-400 hover:text-apple-blue-700 dark:hover:text-apple-blue-300 mt-2 group"
                                             >
                                                 <span>Get Directions</span>
                                                 <span className="transform transition-transform group-hover:translate-x-0.5">→</span>
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
                                 </li>
                                 <li className="group">
-                                    <a
-                                        href="mailto:contact@syntesa.org"
+                                    <Link
+                                        to="mailto:contact@syntesa.org"
                                         className="flex items-center space-x-3 hover:text-gray-900 dark:hover:text-white transition-all duration-300"
                                     >
                                         <HiMail className="w-5 h-5 text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300" />
                                         <span className="text-sm text-gray-500 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white">
                                             contact@syntesa.org
                                         </span>
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>

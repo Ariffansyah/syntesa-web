@@ -86,7 +86,7 @@ export default function Navbar({ socialLinks }: NavbarProps) {
                             {/* Discord Link */}
                             {discordLink && (
                                 <div className="hidden md:flex items-center ml-2">
-                                    <a href={discordLink.href}
+                                    <Link to={discordLink.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="p-2 rounded-full
@@ -100,7 +100,7 @@ export default function Navbar({ socialLinks }: NavbarProps) {
                                             transition-opacity duration-200 whitespace-nowrap pointer-events-none">
                                             Join Discord
                                         </span>
-                                    </a>
+                                    </Link>
                                 </div>
                             )}
                         </div>

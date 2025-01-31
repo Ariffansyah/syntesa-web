@@ -1,7 +1,19 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useReducer, useEffect, useRef, useCallback } from 'react';
+
+type CounterState = { count: number };
+type CounterAction = { type: 'SET_COUNT'; payload: number };
+
+function counterReducer(state: CounterState, action: CounterAction): CounterState {
+    switch (action.type) {
+        case 'SET_COUNT':
+            return { count: action.payload };
+        default:
+            return state;
+    }
+}
 
 export default function AnimatedCounter({ end, duration = 2000 }: { end: number, duration?: number }) {
-    const [count, setCount] = useState(0);
+    const [state, dispatch] = useReducer(counterReducer, { count: 0 });
     const animationFrameId = useRef<number>();
     const startTimeRef = useRef<number>();
     const elementRef = useRef<HTMLSpanElement>(null);
@@ -16,7 +28,7 @@ export default function AnimatedCounter({ end, duration = 2000 }: { end: number,
         const progress = Math.min((timestamp - startTimeRef.current) / duration, 1);
         const nextCount = Math.floor(end * progress);
 
-        setCount(nextCount);
+        dispatch({ type: 'SET_COUNT', payload: nextCount });
 
         if (progress < 1) {
             animationFrameId.current = requestAnimationFrame(animate);
@@ -65,7 +77,7 @@ export default function AnimatedCounter({ end, duration = 2000 }: { end: number,
 
     return (
         <span ref={elementRef} className="tabular-nums">
-            {count}
+            {state.count}
         </span>
     );
 }

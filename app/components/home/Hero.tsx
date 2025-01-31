@@ -1,4 +1,5 @@
 import AnimatedCounter from '~/components/AnimatedCounter';
+import { Link } from '@remix-run/react';
 
 export default function Hero() {
     return (
@@ -92,16 +93,16 @@ export default function Hero() {
                         <nav className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-6 sm:pt-8"
                             aria-label="Primary"
                             style={{ animationDelay: '800ms' }}>
-                            <a href="/apply" className="px-8 py-4 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900
+                            <Link to="/apply" className="px-8 py-4 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900
                                 text-lg font-medium hover:shadow-xl hover:scale-105 transform transition-all duration-300
                                 shadow-gray-900/10">
                                 Apply Now
-                            </a>
-                            <a href="/research" className="px-8 py-4 rounded-full border-2 border-gray-900/10 dark:border-white/10
+                            </Link>
+                            <Link to="/research" className="px-8 py-4 rounded-full border-2 border-gray-900/10 dark:border-white/10
                                 text-lg font-medium text-gray-900 dark:text-white
                                 hover:bg-gray-900/5 dark:hover:bg-white/5 transition-all duration-300">
                                 Explore Research →
-                            </a>
+                            </Link>
                         </nav>
 
                         {/* Statistics */}

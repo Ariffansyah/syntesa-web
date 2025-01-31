@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from '@remix-run/react';
+
 
 interface Benefit {
     title: string;
@@ -274,8 +276,8 @@ export default function JoinCard() {
                                     </header>
 
                                     <nav className="space-y-3 sm:space-y-4">
-                                        <a
-                                            href="/apply"
+                                        <Link
+                                            to="/apply"
                                             className="block w-full px-6 sm:px-8 py-3 sm:py-4 rounded-xl bg-gray-900 dark:bg-white
                                                 text-white dark:text-gray-900 font-medium text-center text-sm sm:text-base
                                                 hover:bg-gray-800 dark:hover:bg-gray-100
@@ -283,9 +285,9 @@ export default function JoinCard() {
                                                 shadow-lg shadow-gray-900/10"
                                         >
                                             Apply Now
-                                        </a>
-                                        <a
-                                            href="/information-pack"
+                                        </Link>
+                                        <Link
+                                            to="/information-pack"
                                             className="block w-full px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-center text-sm sm:text-base
                                                 bg-gray-50 dark:bg-gray-700/50
                                                 text-gray-900 dark:text-white font-medium
@@ -293,7 +295,7 @@ export default function JoinCard() {
                                                 transition-all duration-300"
                                         >
                                             Download Information Pack
-                                        </a>
+                                        </Link>
                                     </nav>
 
                                     <footer className="pt-6 border-t border-gray-200/50 dark:border-gray-700/30">

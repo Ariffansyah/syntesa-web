@@ -1,3 +1,4 @@
+import { memo, useMemo } from 'react';
 import { type IconType } from 'react-icons';
 
 export type PartnerCategory = "Education" | "Infrastructure" | "Technology";
@@ -23,7 +24,22 @@ const shuffleArray = <T,>(array: readonly T[]): T[] => {
 };
 
 export default function Partners(props: PartnersProps) {
-    const shuffledPartners = shuffleArray(props.partners);
+    // Memoize the shuffled array
+    const shuffledPartners = useMemo(() =>
+        shuffleArray(props.partners),
+        [props.partners]
+    );
+
+    // Memoize the duplicated arrays
+    const duplicatedPartners = useMemo(() =>
+        [...props.partners, ...props.partners],
+        [props.partners]
+    );
+
+    const duplicatedShuffled = useMemo(() =>
+        [...shuffledPartners, ...shuffledPartners],
+        [shuffledPartners]
+    );
 
     return (
         <section
@@ -64,7 +80,7 @@ export default function Partners(props: PartnersProps) {
                     <div className="overflow-hidden">
                         <div className="relative flex w-[200%] animate-slide-left">
                             <ul className="flex items-center justify-around w-full space-x-4">
-                                {[...props.partners, ...props.partners].map((partner, index) => (
+                                {duplicatedPartners.map((partner, index) => (
                                     <MarqueeItem
                                         key={`${partner.name}-${index}-row1`}
                                         partner={partner}
@@ -79,7 +95,7 @@ export default function Partners(props: PartnersProps) {
                     <div className="overflow-hidden py-8">
                         <div className="relative flex w-[200%] animate-slide-right">
                             <ul className="flex items-center justify-around w-full space-x-4">
-                                {[...shuffledPartners, ...shuffledPartners].map((partner, index) => (
+                                {duplicatedShuffled.map((partner, index) => (
                                     <MarqueeItem
                                         key={`${partner.name}-${index}-row2`}
                                         partner={partner}
@@ -95,7 +111,10 @@ export default function Partners(props: PartnersProps) {
     );
 }
 
-function MarqueeItem({ partner, tooltipPosition }: { partner: TypePartner, tooltipPosition: 'top' | 'bottom' }) {
+const MarqueeItem = memo(({ partner, tooltipPosition }: {
+    partner: TypePartner,
+    tooltipPosition: 'top' | 'bottom'
+}) => {
     return (
         <li className="flex-shrink-0 group">
             <div className={`relative px-4 py-4 ${tooltipPosition === 'top' ? 'sm:pt-16' : 'sm:pb-16'}`}>
@@ -137,4 +156,6 @@ function MarqueeItem({ partner, tooltipPosition }: { partner: TypePartner, toolt
             </div>
         </li>
     );
-}
+});
+
+MarqueeItem.displayName = 'MarqueeItem';

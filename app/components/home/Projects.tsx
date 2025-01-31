@@ -1,3 +1,4 @@
+import { Link } from '@remix-run/react';
 import { type ComponentType, SVGProps } from 'react';
 import { BsCheckCircle } from 'react-icons/bs';
 import { HiPlus } from 'react-icons/hi';
@@ -152,15 +153,15 @@ export default function Projects(props: ProjectsProps) {
                                         >
                                             {project.status}
                                         </span>
-                                        <a
-                                            href={`/projects/${project.title.toLowerCase().replace(/\s+/g, '-')}`}
+                                        <Link
+                                            to={`/projects/${project.title.toLowerCase().replace(/\s+/g, '-')}`}
                                             className="text-sm font-medium text-gray-900 dark:text-white
                                                 hover:text-gray-600 dark:hover:text-gray-300
                                                 transition-colors duration-300
                                                 w-full sm:w-auto text-center sm:text-left"
                                         >
                                             View Details →
-                                        </a>
+                                        </Link>
                                     </div>
                                 </footer>
                             </article>

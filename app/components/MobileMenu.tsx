@@ -1,4 +1,4 @@
-import { NavLink } from '@remix-run/react';
+import { Link, NavLink } from '@remix-run/react';
 import { type IconType } from 'react-icons';
 
 interface MobileMenuProps {
@@ -70,9 +70,9 @@ export default function MobileMenu({ isOpen, onClose, links, socialLinks, isScro
                                     </span>
                                     <div className="flex items-center gap-1">
                                         {socialLinks.map((item) => (
-                                            <a
+                                            <Link
                                                 key={item.name}
-                                                href={item.href}
+                                                to={item.href}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="p-2 rounded-lg hover:bg-gray-100/50 dark:hover:bg-gray-800/50
@@ -89,7 +89,7 @@ export default function MobileMenu({ isOpen, onClose, links, socialLinks, isScro
                                                     transition-opacity duration-200 whitespace-nowrap pointer-events-none">
                                                     {item.name}
                                                 </span>
-                                            </a>
+                                            </Link>
                                         ))}
                                     </div>
                                 </div>
