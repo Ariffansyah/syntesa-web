@@ -3,7 +3,7 @@ import Hero from "~/components/home/Hero";
 import JoinCard from "~/components/home/JoinCard";
 import Partners from "~/components/home/Partners";
 import Projects from "~/components/home/Projects";
-import StudyClubs from "~/components/home/StudyClubs";
+import InterestGroups from "~/components/home/InterestGroups";
 import Layout from "~/components/Layout";
 import { getClubDetails, getClubSchedule, latestProjects, partnerships, studyClubs } from "~/constants/index_contents";
 import { SITE_META } from "~/constants/site_meta";
@@ -19,12 +19,12 @@ export default function Index() {
       <Layout>
         <Hero />
         <Partners partners={partnerships} />
-        <StudyClubs
+        <InterestGroups
           studyClubs={studyClubs}
           getClubDetails={getClubDetails}
           getClubSchedule={getClubSchedule}
         />
-        <Projects latestProjects={latestProjects} />
+        {/* <Projects latestProjects={latestProjects} /> */}
         <JoinCard />
       </Layout>
     </div>

@@ -280,7 +280,8 @@ export default function JoinCard() {
 
                                     <nav className="space-y-3 sm:space-y-4">
                                         <Link
-                                            to="/apply"
+                                            to="https://unesa.me/syntesa2025"
+                                            target="_blank"
                                             className="block w-full px-6 sm:px-8 py-3 sm:py-4 rounded-xl bg-gray-900 dark:bg-white
                                                 text-white dark:text-gray-900 font-medium text-center text-sm sm:text-base
                                                 hover:bg-gray-800 dark:hover:bg-gray-100
@@ -289,7 +290,7 @@ export default function JoinCard() {
                                         >
                                             Apply Now
                                         </Link>
-                                        <Link
+                                        {/* <Link
                                             to="/information-pack"
                                             className="block w-full px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-center text-sm sm:text-base
                                                 bg-gray-50 dark:bg-gray-700/50
@@ -298,14 +299,14 @@ export default function JoinCard() {
                                                 transition-all duration-300"
                                         >
                                             Download Information Pack
-                                        </Link>
+                                        </Link> */}
                                     </nav>
 
                                     <footer className="pt-6 border-t border-gray-200/50 dark:border-gray-700/30">
                                         <dl className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
                                             <dt>Next Intake</dt>
                                             <dd className="font-medium text-gray-900 dark:text-white">
-                                                May 2025
+                                                April 2025
                                             </dd>
                                         </dl>
                                     </footer>

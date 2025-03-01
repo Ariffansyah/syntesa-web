@@ -1,24 +1,24 @@
 import { BsCheck } from 'react-icons/bs';
 import { type IconType } from 'react-icons';
 
-export type ClubName = "Web Development" | "Data Science" | "DevOps" | "System Administration";
+export type GroupName = "Software Development" | "Data Science" | "Cloud and Infrastructure";
 
-export interface TypeStudyClub {
-    readonly name: ClubName;
+export interface TypeInterestGroup {
+    readonly name: GroupName;
     readonly description: string;
     readonly icon: IconType;
 }
 
-export type ClubDetails = Record<ClubName, readonly string[]>;
-export type ClubSchedules = Record<ClubName, string>;
+export type ClubDetails = Record<GroupName, readonly string[]>;
+export type ClubSchedules = Record<GroupName, string>;
 
-interface StudyClubsProps {
-    studyClubs: readonly TypeStudyClub[];
-    getClubDetails: (club: ClubName) => string[];
-    getClubSchedule: (club: ClubName) => string;
+interface InterestGroupsProps {
+    studyClubs: readonly TypeInterestGroup[];
+    getClubDetails: (club: GroupName) => string[];
+    getClubSchedule: (club: GroupName) => string;
 }
 
-export default function StudyClubs(props: StudyClubsProps) {
+export default function InterestGroups(props: InterestGroupsProps) {
     return (
         <div className="relative bg-gradient-to-b from-white via-gray-50 to-white
                         dark:from-slate-950 dark:via-slate-900 dark:to-slate-950
@@ -66,18 +66,20 @@ export default function StudyClubs(props: StudyClubsProps) {
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
+                {/* <div className="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12"> */}
+                <div className="flex flex-wrap justify-center gap-6 sm:gap-8 lg:gap-12">
                     {props.studyClubs.map((club) => (
                         <div
                             key={club.name}
-                            className="relative group mx-0"
+                            // className="relative group mx-0"
+                            className="relative group mx-0 lg:max-w-[500px] w-full"
                         >
                             <div className="absolute -inset-0.5 bg-gradient-to-r
                                 from-gray-900 to-gray-600 dark:from-white dark:to-gray-300
                                 rounded-xl blur-[2px] opacity-5 group-hover:opacity-10 transition duration-500">
                             </div>
 
-                            <div className="relative flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-6
+                            <div className="relative flex flex-col sm:flex-row items-center sm:items-start h-full gap-3 sm:gap-6
                                 bg-white/50 dark:bg-gray-800/30 p-5 sm:p-6 rounded-xl
                                 border border-gray-200/50 dark:border-gray-700/30
                                 hover:border-apple-blue-500/50
@@ -132,7 +134,7 @@ export default function StudyClubs(props: StudyClubsProps) {
                                             text-gray-900 dark:text-white
                                             bg-gray-100/80 dark:bg-gray-700/50 rounded-full
                                             hover:bg-gray-200 dark:hover:bg-gray-700
-                                            transition duration-300 order-1 sm:order-2 backdrop-blur-sm">
+                                            transition duration-300 order-1 sm:order-2 backdrop-blur-sm whitespace-nowrap">
                                             Learn More →
                                         </button>
                                     </div>

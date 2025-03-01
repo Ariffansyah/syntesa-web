@@ -61,7 +61,7 @@ export default function Navbar({ socialLinks }: NavbarProps) {
 
                         {/* Desktop Navigation */}
                         <div className="hidden md:flex items-center gap-1">
-                            <div className="hidden md:flex items-center bg-gray-300/50 dark:bg-gray-700/50
+                            {/* <div className="hidden md:flex items-center bg-gray-300/50 dark:bg-gray-700/50
                                 rounded-full p-1 backdrop-blur-xl">
                                 {navigationLinks.map((item) => (
                                     <NavLink
@@ -76,7 +76,7 @@ export default function Navbar({ socialLinks }: NavbarProps) {
                                         {item.name}
                                     </NavLink>
                                 ))}
-                            </div>
+                            </div> */}
 
                             {/* Dark Mode Toggle */}
                             <div className="ml-4">

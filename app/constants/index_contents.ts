@@ -3,12 +3,12 @@ import { HiChartBar, HiCode, HiCog, HiServer } from "react-icons/hi";
 import { SiDatacamp, SiGooglecloud, SiJunipernetworks, SiRedhat } from "react-icons/si";
 import { TypePartner } from "~/components/home/Partners";
 import { TypeProject } from "~/components/home/Projects";
-import { TypeStudyClub } from "~/components/home/StudyClubs";
+import { TypeInterestGroup } from "~/components/home/InterestGroups";
 
-export const studyClubs: TypeStudyClub[] = [
+export const studyClubs: TypeInterestGroup[] = [
     {
-        name: "Web Development",
-        description: "Master modern web development technologies and build responsive, scalable applications. Learn from industry and work on real-world projects.",
+        name: "Software Development",
+        description: "Master modern software development technologies and build responsive, scalable applications. Learn from industry and work on real-world projects.",
         icon: HiCode
     },
     {
@@ -17,25 +17,19 @@ export const studyClubs: TypeStudyClub[] = [
         icon: HiChartBar
     },
     {
-        name: "DevOps",
-        description: "Learn to bridge the gap between development and operations. Master continuous integration, deployment, and modern cloud infrastructure.",
+        name: "Cloud and Infrastructure",
+        description: "Learn to bridge the gap between development and operations. Develop expertise in managing and securing computer systems and networks. Learn essential skills for modern IT infrastructure.",
         icon: HiServer
-    },
-    {
-        name: "System Administration",
-        description: "Develop expertise in managing and securing computer systems and networks. Learn essential skills for modern IT infrastructure.",
-        icon: HiCog
     }
 ];
 
 
 export const getClubDetails = (clubName: string) => {
     const details = {
-        "Web Development": [
-            "Frontend & Backend Development",
-            "React, Node.js, and Modern Frameworks",
-            "UI/UX Design Principles",
-            "API Development & Integration"
+        "Software Development": [
+            "Web Development (Frontend & Backend Development)",
+            "API Development & Integration",
+            "Mobile App Development"
         ],
         "Data Science": [
             "Machine Learning & AI",
@@ -43,17 +37,13 @@ export const getClubDetails = (clubName: string) => {
             "Python & R Programming",
             "Big Data Technologies"
         ],
-        "DevOps": [
-            "CI/CD Pipeline Implementation",
-            "Docker & Kubernetes",
-            "Cloud Services (AWS, GCP, Azure)",
-            "Infrastructure as Code"
-        ],
-        "System Administration": [
-            "Network Configuration & Security",
-            "Server Management",
-            "Linux Administration",
-            "Monitoring & Troubleshooting"
+        "Cloud and Infrastructure": [
+            "Cloud Native",
+            "Containerization",
+            "Computer Networks",
+            "Opertaing Systems",
+            "DevOps",
+            "System Administration"
         ]
     };
     return details[clubName as keyof typeof details];
@@ -61,10 +51,9 @@ export const getClubDetails = (clubName: string) => {
 
 export const getClubSchedule = (clubName: string) => {
     const schedules = {
-        "Web Development": "Meets every Tuesday & Thursday",
+        "Software Development": "Meets every Tuesday & Thursday",
         "Data Science": "Meets every Monday & Wednesday",
-        "DevOps": "Meets every Wednesday & Friday",
-        "System Administration": "Meets every Monday & Thursday"
+        "Cloud and Infrastructure": "Meets every Wednesday & Friday"
     };
     return schedules[clubName as keyof typeof schedules];
 };
