@@ -1,4 +1,3 @@
-import { Link } from "react-router";
 import AnimatedCounter from "~/components/AnimatedCounter";
 
 export default function Hero() {
@@ -114,20 +113,16 @@ export default function Hero() {
               aria-label="Primary"
               style={{ animationDelay: "800ms" }}
             >
-              <Link
-                to="https://unesa.me/syntesa2025"
+              <a
+                href="https://unesa.me/syntesa2025"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="px-8 py-4 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900
                                 text-lg font-medium hover:shadow-xl hover:scale-105 transform transition-all duration-300
                                 shadow-gray-900/10"
               >
                 Apply Now
-              </Link>
-              {/* <Link to="/research" className="px-8 py-4 rounded-full border-2 border-gray-900/10 dark:border-white/10
-                                text-lg font-medium text-gray-900 dark:text-white
-                                hover:bg-gray-900/5 dark:hover:bg-white/5 transition-all duration-300">
-                                Explore Research →
-                            </Link> */}
+              </a>
             </nav>
 
             <dl

@@ -8,7 +8,6 @@ import {
   ScrollRestoration,
   useRouteError,
 } from "react-router";
-import AppLayout from "~/components/Layout";
 import NotFound from "~/components/NotFound";
 import { ThemeProvider } from "~/contexts/ThemeContext";
 import "./tailwind.css";
@@ -40,15 +39,7 @@ export const meta: MetaFunction = () => [
   { name: "twitter:description", content: SITE_META.description },
 ];
 
-export const links: LinksFunction = () => [
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
-  { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap",
-  },
-  { rel: "canonical", href: SITE_META.siteUrl },
-];
+export const links: LinksFunction = () => [{ rel: "canonical", href: SITE_META.siteUrl }];
 
 function Document({ children, title }: { children: React.ReactNode; title?: string }) {
   return (
@@ -89,12 +80,12 @@ export function ErrorBoundary() {
   return (
     <Document title={title}>
       <ThemeProvider>
-        <AppLayout>
+        <div className="min-h-screen bg-[#FAFAFA] dark:bg-black">
           <NotFound
             errorMessage={isRouteErrorResponse(error) ? "page_not_found" : "unknown_error"}
             errorCode={isRouteErrorResponse(error) ? "not_found" : "error"}
           />
-        </AppLayout>
+        </div>
       </ThemeProvider>
     </Document>
   );

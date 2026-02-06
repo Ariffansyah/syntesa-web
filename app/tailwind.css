@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "@fontsource-variable/plus-jakarta-sans";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -22,27 +23,14 @@
   --color-apple-blue-900: #002966;
 
   --animate-fade-in-up: fade-in-up 0.5s ease-out forwards;
-  --animate-fade-in-left: fade-in-left 0.5s ease-out forwards;
-  --animate-fade-in-right: fade-in-right 0.5s ease-out forwards;
   --animate-slide-left: slide-left 30s linear infinite;
   --animate-slide-left-mobile: slide-left-mobile 15s linear infinite;
   --animate-slide-right: slide-right 30s linear infinite;
   --animate-slide-right-mobile: slide-right-mobile 15s linear infinite;
-  --animate-bounce-slow: bounce 3s ease-in-out infinite;
   --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  --animate-float: float 6s ease-in-out infinite;
   --animate-gradient: gradient 8s linear infinite;
   --animate-gradient-x: gradient-x 15s ease infinite;
   --animate-gradient-xy: gradient-xy 15s ease infinite;
-  --animate-gradient-slow: gradient 15s ease infinite;
-  --animate-flow: flow 15s ease infinite;
-  --animate-shimmer: shimmer 3s ease-in-out infinite;
-  --animate-ripple: ripple 3s linear infinite;
-  --animate-spin-slow: spin 8s linear infinite;
-  --animate-wiggle: wiggle 1s ease-in-out infinite;
-  --animate-wave: wave 15s ease-in-out infinite;
-  --animate-floating: floating 6s ease-in-out infinite;
-  --animate-scale-wave: scale-wave 10s ease-in-out infinite;
   --animate-blob: blob 7s infinite;
 
   @keyframes fade-in-up {
@@ -53,28 +41,6 @@
     100% {
       opacity: 1;
       transform: translateY(0);
-    }
-  }
-
-  @keyframes fade-in-left {
-    0% {
-      opacity: 0;
-      transform: translateX(-20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes fade-in-right {
-    0% {
-      opacity: 0;
-      transform: translateX(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
     }
   }
 
@@ -114,16 +80,6 @@
     }
   }
 
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
-  }
-
   @keyframes gradient {
     0%,
     100% {
@@ -160,80 +116,6 @@
     }
   }
 
-  @keyframes flow {
-    0%,
-    100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-  }
-
-  @keyframes shimmer {
-    0% {
-      background-position: -1000px 0;
-    }
-    100% {
-      background-position: 1000px 0;
-    }
-  }
-
-  @keyframes ripple {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.3);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-
-  @keyframes wiggle {
-    0%,
-    100% {
-      transform: rotate(-3deg);
-    }
-    50% {
-      transform: rotate(3deg);
-    }
-  }
-
-  @keyframes wave {
-    0%,
-    100% {
-      transform: translate(0%, 0%) scale(1);
-    }
-    33% {
-      transform: translate(-25%, 5%) scale(1.1);
-    }
-    66% {
-      transform: translate(25%, -5%) scale(0.9);
-    }
-  }
-
-  @keyframes floating {
-    0%,
-    100% {
-      transform: translateY(0) scale(1);
-    }
-    50% {
-      transform: translateY(-20px) scale(1.05);
-    }
-  }
-
-  @keyframes scale-wave {
-    0%,
-    100% {
-      transform: scale(1) rotate(0deg);
-    }
-    50% {
-      transform: scale(1.2) rotate(15deg);
-    }
-  }
-
   @keyframes blob {
     0% {
       transform: translate(0px, 0px) scale(1);
@@ -263,7 +145,12 @@ body {
   .animate-slide-left,
   .animate-slide-right,
   .animate-slide-left-mobile,
-  .animate-slide-right-mobile {
+  .animate-slide-right-mobile,
+  .animate-pulse-slow,
+  .animate-gradient,
+  .animate-gradient-x,
+  .animate-gradient-xy,
+  .animate-blob {
     animation: none;
   }
 }

@@ -3,7 +3,6 @@ import Hero from "~/components/home/Hero";
 import InterestGroups from "~/components/home/InterestGroups";
 import JoinCard from "~/components/home/JoinCard";
 import Partners from "~/components/home/Partners";
-import Layout from "~/components/Layout";
 import {
   getGroupDetails,
   getGroupSchedule,
@@ -19,17 +18,15 @@ export const meta: MetaFunction = () => [
 
 export default function Index() {
   return (
-    <div className="min-h-screen bg-[#FAFAFA] dark:bg-black">
-      <Layout>
-        <Hero />
-        <Partners partners={partnerships} />
-        <InterestGroups
-          interestGroups={interestGroups}
-          getClubDetails={getGroupDetails}
-          getClubSchedule={getGroupSchedule}
-        />
-        <JoinCard />
-      </Layout>
-    </div>
+    <>
+      <Hero />
+      <Partners partners={partnerships} />
+      <InterestGroups
+        interestGroups={interestGroups}
+        getClubDetails={getGroupDetails}
+        getClubSchedule={getGroupSchedule}
+      />
+      <JoinCard />
+    </>
   );
 }

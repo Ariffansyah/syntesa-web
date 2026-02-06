@@ -1,8 +1,10 @@
 import { FaDiscord, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { Outlet } from "react-router";
+import type { SocialLink } from "~/types";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 
-const socialLinks = [
+const socialLinks: SocialLink[] = [
   {
     name: "Discord",
     href: "https://discord.gg/KeCh9tb8hv",
@@ -25,11 +27,13 @@ const socialLinks = [
   },
 ];
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function Layout() {
   return (
     <div className="min-h-screen bg-[#FAFAFA] dark:bg-black">
       <Navbar socialLinks={socialLinks} />
-      <main>{children}</main>
+      <main>
+        <Outlet />
+      </main>
       <Footer socialLinks={socialLinks} />
     </div>
   );

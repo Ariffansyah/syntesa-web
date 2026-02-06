@@ -1,9 +1,8 @@
 import { FaAws, FaMicrosoft } from "react-icons/fa";
 import { HiChartBar, HiCode, HiServer } from "react-icons/hi";
 import { SiDatacamp, SiGooglecloud, SiJunipernetworks, SiRedhat } from "react-icons/si";
-import type { TypeInterestGroup } from "~/components/home/InterestGroups";
+import type { GroupName, TypeInterestGroup } from "~/components/home/InterestGroups";
 import type { TypePartner } from "~/components/home/Partners";
-import type { TypeProject } from "~/components/home/Projects";
 
 export const interestGroups: TypeInterestGroup[] = [
   {
@@ -26,8 +25,8 @@ export const interestGroups: TypeInterestGroup[] = [
   },
 ];
 
-export const getGroupDetails = (clubName: string) => {
-  const details = {
+export const getGroupDetails = (clubName: GroupName): string[] => {
+  const details: Record<GroupName, string[]> = {
     "Software Development": [
       "Web Development (Frontend & Backend Development)",
       "API Development & Integration",
@@ -48,38 +47,17 @@ export const getGroupDetails = (clubName: string) => {
       "System Administration",
     ],
   };
-  return details[clubName as keyof typeof details];
+  return details[clubName];
 };
 
-export const getGroupSchedule = (clubName: string) => {
-  const schedules = {
+export const getGroupSchedule = (clubName: GroupName): string => {
+  const schedules: Record<GroupName, string> = {
     "Software Development": "Meets every Tuesday & Thursday",
     "Data Science": "Meets every Monday & Wednesday",
     "Cloud and Infrastructure": "Meets every Wednesday & Friday",
   };
-  return schedules[clubName as keyof typeof schedules];
+  return schedules[clubName];
 };
-
-export const latestProjects: TypeProject[] = [
-  {
-    title: "AI-Powered Traffic Management",
-    description: "Developing intelligent systems for optimizing urban traffic flow",
-    status: "Ongoing" as const,
-    progress: 75,
-  },
-  {
-    title: "Smart Campus Initiative",
-    description: "Creating an IoT-based infrastructure for campus automation",
-    status: "Completed" as const,
-    progress: 100,
-  },
-  {
-    title: "Blockchain for Education",
-    description: "Implementing secure credential verification system",
-    status: "Planning" as const,
-    progress: 25,
-  },
-];
 
 export const partnerships: TypePartner[] = [
   {

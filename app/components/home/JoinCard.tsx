@@ -1,6 +1,5 @@
 import type React from "react";
 import { useState } from "react";
-import { Link } from "react-router";
 
 interface Benefit {
   title: string;
@@ -307,9 +306,10 @@ export default function JoinCard() {
                   </header>
 
                   <nav className="space-y-3 sm:space-y-4">
-                    <Link
-                      to="https://unesa.me/syntesa2025"
+                    <a
+                      href="https://unesa.me/syntesa2025"
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="block w-full px-6 sm:px-8 py-3 sm:py-4 rounded-xl bg-gray-900 dark:bg-white
                                                 text-white dark:text-gray-900 font-medium text-center text-sm sm:text-base
                                                 hover:bg-gray-800 dark:hover:bg-gray-100
@@ -317,7 +317,7 @@ export default function JoinCard() {
                                                 shadow-lg shadow-gray-900/10"
                     >
                       Apply Now
-                    </Link>
+                    </a>
                   </nav>
 
                   <footer className="pt-6 border-t border-gray-200/50 dark:border-gray-700/30">
