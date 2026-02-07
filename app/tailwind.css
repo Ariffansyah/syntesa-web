@@ -24,9 +24,7 @@
 
   --animate-fade-in-up: fade-in-up 0.5s ease-out forwards;
   --animate-slide-left: slide-left 30s linear infinite;
-  --animate-slide-left-mobile: slide-left-mobile 15s linear infinite;
   --animate-slide-right: slide-right 30s linear infinite;
-  --animate-slide-right-mobile: slide-right-mobile 15s linear infinite;
   --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   --animate-gradient: gradient 8s linear infinite;
   --animate-gradient-x: gradient-x 15s ease infinite;
@@ -46,37 +44,19 @@
 
   @keyframes slide-left {
     0% {
-      transform: translateX(0);
+      transform: translate3d(0, 0, 0);
     }
     100% {
-      transform: translateX(-50%);
+      transform: translate3d(-50%, 0, 0);
     }
   }
 
   @keyframes slide-right {
     0% {
-      transform: translateX(-50%);
+      transform: translate3d(-50%, 0, 0);
     }
     100% {
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes slide-left-mobile {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-
-  @keyframes slide-right-mobile {
-    0% {
-      transform: translateX(-50%);
-    }
-    100% {
-      transform: translateX(0);
+      transform: translate3d(0, 0, 0);
     }
   }
 
@@ -144,13 +124,18 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .animate-slide-left,
   .animate-slide-right,
-  .animate-slide-left-mobile,
-  .animate-slide-right-mobile,
   .animate-pulse-slow,
   .animate-gradient,
   .animate-gradient-x,
   .animate-gradient-xy,
   .animate-blob {
     animation: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .animate-slide-left,
+  .animate-slide-right {
+    animation-duration: 15s;
   }
 }
