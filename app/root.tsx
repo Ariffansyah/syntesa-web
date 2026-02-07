@@ -48,6 +48,7 @@ function Document({ children, title }: { children: React.ReactNode; title?: stri
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index,follow" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         {title && <title>{title}</title>}
         <Meta />
         <Links />

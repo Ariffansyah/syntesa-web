@@ -1,5 +1,5 @@
 import { FaAws, FaMicrosoft } from "react-icons/fa";
-import { HiChartBar, HiCode, HiServer } from "react-icons/hi";
+import { HiCode, HiServer } from "react-icons/hi";
 import { SiDatacamp, SiGooglecloud, SiJunipernetworks, SiRedhat } from "react-icons/si";
 import type { GroupName, TypeInterestGroup } from "~/components/home/InterestGroups";
 import type { TypePartner } from "~/components/home/Partners";
@@ -8,14 +8,8 @@ export const interestGroups: TypeInterestGroup[] = [
   {
     name: "Software Development",
     description:
-      "Master modern software development technologies and build responsive, scalable applications. Learn from industry and work on real-world projects.",
+      "Master modern software engineering by building scalable applications and intelligent systems. From web platforms to AI integration, learn to solve real-world problems with code.",
     icon: HiCode,
-  },
-  {
-    name: "Data Science",
-    description:
-      "Dive into the world of data science, machine learning, and artificial intelligence. Transform raw data into meaningful insights and solutions.",
-    icon: HiChartBar,
   },
   {
     name: "Cloud and Infrastructure",
@@ -28,22 +22,17 @@ export const interestGroups: TypeInterestGroup[] = [
 export const getGroupDetails = (clubName: GroupName): string[] => {
   const details: Record<GroupName, string[]> = {
     "Software Development": [
-      "Web Development (Frontend & Backend Development)",
+      "Web Development (Frontend & Backend)",
       "API Development & Integration",
       "Mobile App Development",
-    ],
-    "Data Science": [
-      "Machine Learning & AI",
+      "Machine Learning & AI Implementation",
       "Data Analysis & Visualization",
-      "Python & R Programming",
-      "Big Data Technologies",
     ],
     "Cloud and Infrastructure": [
-      "Cloud Native",
-      "Containerization",
-      "Computer Networks",
-      "Opertaing Systems",
-      "DevOps",
+      "Cloud Native & Microservices",
+      "Computer Networks & Security",
+      "Operating Systems (Linux/Unix)",
+      "DevOps & CI/CD Pipelines",
       "System Administration",
     ],
   };
@@ -52,8 +41,7 @@ export const getGroupDetails = (clubName: GroupName): string[] => {
 
 export const getGroupSchedule = (clubName: GroupName): string => {
   const schedules: Record<GroupName, string> = {
-    "Software Development": "Meets every Tuesday & Thursday",
-    "Data Science": "Meets every Monday & Wednesday",
+    "Software Development": "Meets every Friday",
     "Cloud and Infrastructure": "Meets every Wednesday & Friday",
   };
   return schedules[clubName];
