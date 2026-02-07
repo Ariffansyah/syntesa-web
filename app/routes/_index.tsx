@@ -1,15 +1,10 @@
 import type { MetaFunction } from "react-router";
 import Hero from "~/components/home/Hero";
 import InterestGroups from "~/components/home/InterestGroups";
-import JoinCard from "~/components/home/JoinCard";
 import Partners from "~/components/home/Partners";
-import {
-  getGroupDetails,
-  getGroupSchedule,
-  interestGroups,
-  partnerships,
-} from "~/constants/index_contents";
+import { getGroupDetails, interestGroups, partnerships } from "~/constants/index_contents";
 import { SITE_META } from "~/constants/site_meta";
+import { socialLinks } from "~/constants/socialLinks";
 
 export const meta: MetaFunction = () => [
   { title: SITE_META.title },
@@ -19,14 +14,9 @@ export const meta: MetaFunction = () => [
 export default function Index() {
   return (
     <>
-      <Hero />
+      <Hero socialLinks={socialLinks} />
       <Partners partners={partnerships} />
-      <InterestGroups
-        interestGroups={interestGroups}
-        getClubDetails={getGroupDetails}
-        getClubSchedule={getGroupSchedule}
-      />
-      <JoinCard />
+      <InterestGroups interestGroups={interestGroups} getClubDetails={getGroupDetails} />
     </>
   );
 }

@@ -83,12 +83,12 @@ export default function Footer({ socialLinks }: FooterProps) {
                 </li>
                 <li className="group">
                   <a
-                    href="mailto:contact@syntesa.org"
+                    href="mailto:contact@syntesa.net"
                     className="flex items-center space-x-3 hover:text-gray-900 dark:hover:text-white transition-all duration-300"
                   >
                     <HiMail className="w-5 h-5 text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300" />
                     <span className="text-sm text-gray-500 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white">
-                      contact@syntesa.org
+                      contact@syntesa.net
                     </span>
                   </a>
                 </li>
