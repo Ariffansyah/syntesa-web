@@ -69,7 +69,7 @@ export default function Hero({ socialLinks }: HeroProps) {
           <div>
             <h1
               id="hero-heading"
-              className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-medium tracking-tight text-gray-900 dark:text-neutral-100 leading-[0.95]"
+              className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-medium tracking-tight text-gray-900 dark:text-neutral-100 leading-[1.15]"
             >
               {headingLines.map((line, i) => (
                 <span key={line} className="block overflow-hidden">
