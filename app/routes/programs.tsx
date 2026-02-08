@@ -137,31 +137,6 @@ export default function Programs() {
         aria-labelledby="programs-hero-heading"
         className="relative bg-white dark:bg-neutral-950 pt-24 sm:pt-32 border-y border-gray-200 dark:border-neutral-800"
       >
-        <span
-          className="absolute top-4 left-4 text-gray-300 dark:text-neutral-700 text-xs font-mono select-none pointer-events-none"
-          aria-hidden="true"
-        >
-          +
-        </span>
-        <span
-          className="absolute top-4 right-4 text-gray-300 dark:text-neutral-700 text-xs font-mono select-none pointer-events-none"
-          aria-hidden="true"
-        >
-          +
-        </span>
-        <span
-          className="absolute bottom-4 left-4 text-gray-300 dark:text-neutral-700 text-xs font-mono select-none pointer-events-none"
-          aria-hidden="true"
-        >
-          +
-        </span>
-        <span
-          className="absolute bottom-4 right-4 text-gray-300 dark:text-neutral-700 text-xs font-mono select-none pointer-events-none"
-          aria-hidden="true"
-        >
-          +
-        </span>
-
         <div className="max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800">
           <div className="grid grid-cols-1 lg:grid-cols-12">
             <div className="lg:col-span-7 p-6 sm:p-12 lg:p-16 border-b lg:border-b-0 lg:border-r border-gray-200 dark:border-neutral-800">
@@ -306,14 +281,6 @@ export default function Programs() {
                         {program.format}
                       </span>
                     </div>
-                    <motion.span
-                      animate={{ rotate: expandedProgram === program.id ? 45 : 0 }}
-                      transition={{ duration: 0.25 }}
-                      className="text-gray-400 dark:text-neutral-600 text-2xl shrink-0 ml-4"
-                      aria-hidden="true"
-                    >
-                      +
-                    </motion.span>
                   </div>
                 </div>
               </button>

@@ -2,6 +2,7 @@ import { useRef } from "react";
 import type { IconType } from "react-icons";
 import Reveal from "~/components/Reveal";
 import ScrambleText from "~/components/ScrambleText";
+import GradientOrb from "~/components/ui/GradientOrb";
 import { useInView } from "~/hooks/useInView";
 
 export interface TypeLabSpec {
@@ -22,20 +23,9 @@ export default function Infrastructure({ specs }: InfrastructureProps) {
   return (
     <section
       aria-labelledby="infrastructure-heading"
-      className="relative bg-white dark:bg-neutral-950 border-y border-gray-200 dark:border-neutral-800"
+      className="relative bg-white dark:bg-neutral-950 border-y border-gray-200 dark:border-neutral-800 overflow-hidden"
     >
-      <span
-        className="absolute top-4 left-4 text-gray-300 dark:text-neutral-700 text-xs font-mono select-none pointer-events-none"
-        aria-hidden="true"
-      >
-        +
-      </span>
-      <span
-        className="absolute top-4 right-4 text-gray-300 dark:text-neutral-700 text-xs font-mono select-none pointer-events-none"
-        aria-hidden="true"
-      >
-        +
-      </span>
+      <GradientOrb color="orange" position="bottom-left" size="lg" />
 
       <div className="max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800">
         <div className="grid grid-cols-1 lg:grid-cols-12 border-b border-gray-200 dark:border-neutral-800">

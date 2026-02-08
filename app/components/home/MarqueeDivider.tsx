@@ -28,13 +28,15 @@ export default function MarqueeDivider({
         <div
           ref={ref}
           className={`py-8 sm:py-12 overflow-hidden transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isInView ? "opacity-100" : "opacity-0"}`}
+          style={{ contentVisibility: "auto", containIntrinsicSize: "0 120px" }}
         >
           <div
-            className="whitespace-nowrap font-mono text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light uppercase tracking-wider select-none will-change-transform motion-safe:animate-[marquee-scroll_var(--marquee-duration)_linear_infinite] text-stroke"
+            className="whitespace-nowrap font-mono text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light uppercase tracking-wider select-none motion-safe:animate-[marquee-scroll_var(--marquee-duration)_linear_infinite] text-stroke"
             style={
               {
                 width: "fit-content",
                 "--marquee-duration": `${duration}s`,
+                animationPlayState: isInView ? "running" : "paused",
               } as React.CSSProperties
             }
           >

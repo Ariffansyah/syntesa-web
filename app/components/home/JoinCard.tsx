@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
 import BorderDraw from "~/components/BorderDraw";
 import ScrambleText from "~/components/ScrambleText";
+import GradientOrb from "~/components/ui/GradientOrb";
 import { useInView } from "~/hooks/useInView";
 
 interface FAQ {
@@ -47,8 +48,9 @@ export default function JoinCard() {
   return (
     <section
       aria-labelledby="join-heading"
-      className="bg-white dark:bg-neutral-950 border-y border-gray-200 dark:border-neutral-800"
+      className="relative bg-white dark:bg-neutral-950 border-y border-gray-200 dark:border-neutral-800 overflow-hidden"
     >
+      <GradientOrb color="purple" position="bottom-right" size="lg" />
       <div className="max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800">
         <div
           ref={headerRef}
@@ -215,14 +217,6 @@ function FAQItem({
         <span className="font-medium text-gray-900 dark:text-neutral-100 group-hover:text-gray-600 dark:group-hover:text-neutral-300 transition-colors">
           {faq.question}
         </span>
-        <motion.span
-          animate={{ rotate: isExpanded ? 45 : 0 }}
-          transition={{ duration: 0.25 }}
-          className="text-gray-400 dark:text-neutral-600 text-xl shrink-0"
-          aria-hidden="true"
-        >
-          +
-        </motion.span>
       </button>
       <motion.div
         id={`faq-content-${faq.question.replace(/\s+/g, "-").toLowerCase()}`}

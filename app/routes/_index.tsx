@@ -7,7 +7,7 @@ import MarqueeDivider from "~/components/home/MarqueeDivider";
 import MissionStatement from "~/components/home/MissionStatement";
 import Partners from "~/components/home/Partners";
 import Seniors from "~/components/home/Seniors";
-import { LineReveal } from "~/components/Reveal";
+import TechSeparator from "~/components/home/TechSeparator";
 import {
   getGroupDetails,
   interestGroups,
@@ -34,19 +34,19 @@ export default function Index() {
       <Hero socialLinks={socialLinks} />
       <Partners partners={partnerships} />
       <div className="max-w-[1920px] mx-auto w-full px-6 sm:px-12">
-        <LineReveal />
+        <TechSeparator />
       </div>
       <MissionStatement />
       <div className="max-w-[1920px] mx-auto w-full px-6 sm:px-12">
-        <LineReveal delay={0.1} />
+        <TechSeparator delay={0.1} />
       </div>
       <Infrastructure specs={labSpecs} />
       <div className="max-w-[1920px] mx-auto w-full px-6 sm:px-12">
-        <LineReveal delay={0.1} />
+        <TechSeparator delay={0.1} />
       </div>
       <InterestGroups interestGroups={interestGroups} getClubDetails={getGroupDetails} />
       <div className="max-w-[1920px] mx-auto w-full px-6 sm:px-12">
-        <LineReveal delay={0.1} />
+        <TechSeparator delay={0.1} />
       </div>
       <Seniors seniors={seniors} />
       <MarqueeDivider />

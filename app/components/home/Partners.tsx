@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import type { IconType } from "react-icons";
 import ScrambleText from "~/components/ScrambleText";
+import GradientOrb from "~/components/ui/GradientOrb";
 import { useInView } from "~/hooks/useInView";
 
 export interface TypePartner {
@@ -24,8 +25,9 @@ export default function Partners({ partners }: PartnersProps) {
   return (
     <section
       aria-labelledby="network-heading"
-      className="bg-white dark:bg-neutral-950 border-y border-gray-200 dark:border-neutral-800"
+      className="relative bg-white dark:bg-neutral-950 border-y border-gray-200 dark:border-neutral-800 overflow-hidden"
     >
+      <GradientOrb color="cyan" position="top-right" size="md" />
       <div className="max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800">
         <div
           ref={headerRef}
@@ -66,10 +68,14 @@ export default function Partners({ partners }: PartnersProps) {
         <div
           ref={marqueeRef}
           className={`py-12 sm:py-24 overflow-hidden relative transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isMarqueeInView ? "opacity-100" : "opacity-0"}`}
+          style={{ contentVisibility: "auto", containIntrinsicSize: "0 200px" }}
         >
           <div
-            className="flex will-change-transform motion-safe:animate-[marquee-scroll_60s_linear_infinite]"
-            style={{ width: "fit-content" }}
+            className="flex motion-safe:animate-[marquee-scroll_60s_linear_infinite]"
+            style={{
+              width: "fit-content",
+              animationPlayState: isMarqueeInView ? "running" : "paused",
+            }}
           >
             {[0, 1].map((half) => (
               <ul

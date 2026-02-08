@@ -1,6 +1,5 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
 import { BsArrowDownRight, BsArrowRight } from "react-icons/bs";
+import GradientOrb from "~/components/ui/GradientOrb";
 import { useAnimatedCounter } from "~/hooks/useAnimatedCounter";
 import type { SocialLink } from "~/types";
 
@@ -14,57 +13,18 @@ const headingLines = ["Software", "Engineering", "Laboratory"];
 
 export default function Hero({ socialLinks }: HeroProps) {
   const discordLink = socialLinks.find((link) => link.name === "Discord");
-  const sectionRef = useRef<HTMLElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-
-  const y = useTransform(
-    scrollYProgress,
-    [0, 1],
-    prefersReducedMotion ? ["0%", "0%"] : ["0%", "15%"],
-  );
-  const opacity = useTransform(scrollYProgress, [0, 0.8], prefersReducedMotion ? [1, 1] : [1, 0]);
 
   return (
     <section
-      ref={sectionRef}
       aria-labelledby="hero-heading"
       className="relative bg-white dark:bg-neutral-950 pt-24 sm:pt-32 min-h-screen flex flex-col border-y border-gray-200 dark:border-neutral-800 overflow-hidden"
     >
-      <span
-        className="absolute top-4 left-4 text-gray-300 dark:text-neutral-700 text-xs font-mono select-none pointer-events-none"
-        aria-hidden="true"
-      >
-        +
-      </span>
-      <span
-        className="absolute top-4 right-4 text-gray-300 dark:text-neutral-700 text-xs font-mono select-none pointer-events-none"
-        aria-hidden="true"
-      >
-        +
-      </span>
-      <span
-        className="absolute bottom-4 left-4 text-gray-300 dark:text-neutral-700 text-xs font-mono select-none pointer-events-none"
-        aria-hidden="true"
-      >
-        +
-      </span>
-      <span
-        className="absolute bottom-4 right-4 text-gray-300 dark:text-neutral-700 text-xs font-mono select-none pointer-events-none"
-        aria-hidden="true"
-      >
-        +
-      </span>
+      <GradientOrb color="blue" position="top-left" size="lg" />
+      <GradientOrb color="purple" position="bottom-right" size="md" />
 
       <div className="w-full h-px bg-gray-200 dark:bg-neutral-800" aria-hidden="true" />
 
-      <motion.div
-        style={{ y, opacity }}
-        className="flex-1 max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800 grid grid-cols-1 lg:grid-cols-12"
-      >
+      <div className="flex-1 max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800 grid grid-cols-1 lg:grid-cols-12">
         <div className="lg:col-span-8 p-6 sm:p-12 lg:p-16 border-b lg:border-b-0 lg:border-r border-gray-200 dark:border-neutral-800 flex flex-col justify-between">
           <div>
             <h1
@@ -164,7 +124,7 @@ export default function Hero({ socialLinks }: HeroProps) {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

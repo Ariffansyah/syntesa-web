@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import Reveal from "~/components/Reveal";
 import ScrambleText from "~/components/ScrambleText";
+import GradientOrb from "~/components/ui/GradientOrb";
 import { useInView } from "~/hooks/useInView";
 
 export interface TypeSenior {
@@ -23,8 +24,9 @@ export default function Seniors({ seniors }: SeniorsProps) {
   return (
     <section
       aria-labelledby="placements-heading"
-      className="bg-white dark:bg-neutral-950 border-y border-gray-200 dark:border-neutral-800"
+      className="relative bg-white dark:bg-neutral-950 border-y border-gray-200 dark:border-neutral-800 overflow-hidden"
     >
+      <GradientOrb color="green" position="top-right" size="md" />
       <div className="max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800">
         <div className="grid grid-cols-1 lg:grid-cols-12 border-b border-gray-200 dark:border-neutral-800">
           <div className="lg:col-span-4 p-6 sm:p-12 border-b lg:border-b-0 lg:border-r border-gray-200 dark:border-neutral-800 bg-hatching relative">

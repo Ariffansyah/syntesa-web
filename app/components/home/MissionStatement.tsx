@@ -1,6 +1,7 @@
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import { useCallback, useRef } from "react";
 import ScrambleText from "~/components/ScrambleText";
+import BackgroundGlow from "~/components/ui/BackgroundGlow";
 
 import { prefersReducedMotion } from "~/utils/prefersReducedMotion";
 
@@ -18,21 +19,21 @@ export default function MissionStatement({ text = DEFAULT_TEXT }: MissionStateme
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start 0.35", "end 0.45"],
+    offset: ["start 0.8", "start 0.3"],
   });
 
   const updateOpacities = useCallback(
     (progress: number) => {
+      if (prefersReducedMotion) return;
       const spans = wordSpansRef.current;
       const total = words.length;
       for (let i = 0; i < spans.length; i++) {
         const span = spans[i];
         if (!span) continue;
         const start = i / total;
-        const end = Math.min(start + 1.5 / total, 1);
+        const end = Math.min(start + 2 / total, 1);
         const t = Math.min(Math.max((progress - start) / (end - start), 0), 1);
-        const opacity = prefersReducedMotion ? 1 : 0.15 + t * 0.85;
-        span.style.opacity = String(opacity);
+        span.style.opacity = String(0.15 + t * 0.85);
       }
     },
     [words.length],
@@ -51,8 +52,9 @@ export default function MissionStatement({ text = DEFAULT_TEXT }: MissionStateme
     <section
       ref={sectionRef}
       aria-labelledby="mission-heading"
-      className="bg-white dark:bg-neutral-950 border-y border-gray-200 dark:border-neutral-800"
+      className="relative bg-white dark:bg-neutral-950 border-y border-gray-200 dark:border-neutral-800 overflow-hidden"
     >
+      <BackgroundGlow />
       <div className="max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800">
         <div className="border-b border-gray-200 dark:border-neutral-800 p-6 sm:p-12">
           <ScrambleText
@@ -63,7 +65,7 @@ export default function MissionStatement({ text = DEFAULT_TEXT }: MissionStateme
           />
         </div>
 
-        <div className="p-6 sm:p-12 lg:p-16 xl:p-24 min-h-[40vh] flex items-center bg-grid-lines">
+        <div className="p-6 sm:p-12 lg:p-16 xl:p-24 min-h-[40vh] flex items-center bg-grid-lines overflow-hidden">
           <blockquote className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium leading-snug tracking-tight max-w-5xl">
             {words.map((word, i) => (
               <span
