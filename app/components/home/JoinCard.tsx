@@ -49,7 +49,7 @@ export default function JoinCard() {
       aria-labelledby="join-heading"
       className="bg-white dark:bg-neutral-950 border-y border-gray-200 dark:border-neutral-800"
     >
-      <div className="max-w-480 mx-auto w-full border-x border-gray-200 dark:border-neutral-800">
+      <div className="max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800">
         <div
           ref={headerRef}
           className="grid grid-cols-1 lg:grid-cols-12 border-b border-gray-200 dark:border-neutral-800"
@@ -65,7 +65,7 @@ export default function JoinCard() {
               />
             </div>
             <span
-              className="absolute bottom-2 right-4 text-[6rem] font-mono font-bold leading-none text-gray-100 dark:text-neutral-800 select-none pointer-events-none"
+              className="absolute bottom-2 right-4 text-[4rem] sm:text-[6rem] font-mono font-bold leading-none text-gray-100 dark:text-neutral-800 select-none pointer-events-none"
               aria-hidden="true"
             >
               06

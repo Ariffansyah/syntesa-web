@@ -117,7 +117,7 @@ export default function Programs() {
           +
         </span>
 
-        <div className="max-w-480 mx-auto w-full border-x border-gray-200 dark:border-neutral-800">
+        <div className="max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800">
           <div className="grid grid-cols-1 lg:grid-cols-12">
             <div className="lg:col-span-7 p-6 sm:p-12 lg:p-16 border-b lg:border-b-0 lg:border-r border-gray-200 dark:border-neutral-800">
               <h1 className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-medium tracking-tight text-gray-900 dark:text-neutral-100 leading-[0.95]">
@@ -181,7 +181,7 @@ export default function Programs() {
               ].map((stat, i) => (
                 <div
                   key={stat.label}
-                  className={`p-6 sm:p-8 ${i < 2 ? "border-r border-gray-200 dark:border-neutral-800" : ""} ${i < 1 ? "border-b md:border-b-0 border-gray-200 dark:border-neutral-800" : ""}`}
+                  className={`p-6 sm:p-8 ${i % 2 === 0 ? "border-r border-gray-200 dark:border-neutral-800" : ""} ${i < 2 ? "md:border-r" : "md:border-r-0"} ${i < 1 ? "border-b md:border-b-0 border-gray-200 dark:border-neutral-800" : ""}`}
                 >
                   <span className="block text-xs uppercase tracking-wider text-gray-500 dark:text-neutral-400 font-mono mb-2">
                     {stat.label}
@@ -197,7 +197,7 @@ export default function Programs() {
       </section>
 
       <section className="bg-white dark:bg-neutral-950 border-y border-gray-200 dark:border-neutral-800">
-        <div className="max-w-480 mx-auto w-full border-x border-gray-200 dark:border-neutral-800">
+        <div className="max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800">
           <div className="p-6 sm:p-12 border-b border-gray-200 dark:border-neutral-800 bg-hatching relative">
             <Reveal>
               <h2 className="text-sm font-mono uppercase tracking-wider text-gray-500 dark:text-neutral-400">
@@ -205,7 +205,7 @@ export default function Programs() {
               </h2>
             </Reveal>
             <span
-              className="absolute bottom-2 right-4 text-[6rem] font-mono font-bold leading-none text-gray-100 dark:text-neutral-800 select-none pointer-events-none"
+              className="absolute bottom-2 right-4 text-[4rem] sm:text-[6rem] font-mono font-bold leading-none text-gray-100 dark:text-neutral-800 select-none pointer-events-none"
               aria-hidden="true"
             >
               01
@@ -227,12 +227,12 @@ export default function Programs() {
                 className="w-full text-left group"
               >
                 <div className="grid grid-cols-1 sm:grid-cols-12 hover:bg-gray-50 dark:hover:bg-neutral-900 transition-colors">
-                  <div className="sm:col-span-1 p-6 sm:p-8 sm:border-r border-gray-200 dark:border-neutral-800 flex items-center">
+                  <div className="sm:col-span-2 p-6 sm:p-8 sm:border-r border-gray-200 dark:border-neutral-800 flex items-center">
                     <span className="text-2xl font-light text-gray-900 dark:text-neutral-100 font-mono">
                       {program.id}
                     </span>
                   </div>
-                  <div className="sm:col-span-5 p-6 sm:p-8 sm:border-r border-gray-200 dark:border-neutral-800">
+                  <div className="sm:col-span-6 p-6 sm:p-8 sm:border-r border-gray-200 dark:border-neutral-800">
                     <h3 className="text-xl sm:text-2xl font-medium text-gray-900 dark:text-neutral-100 group-hover:text-gray-600 dark:group-hover:text-neutral-300 transition-colors">
                       {program.title}
                     </h3>
@@ -240,7 +240,7 @@ export default function Programs() {
                       {program.subtitle}
                     </p>
                   </div>
-                  <div className="sm:col-span-3 p-6 sm:p-8 flex items-center justify-between">
+                  <div className="sm:col-span-4 p-6 sm:p-8 flex items-center justify-between">
                     <div>
                       <span className="block text-xs font-mono uppercase tracking-wider text-gray-400 dark:text-neutral-600 mb-1">
                         Format
@@ -306,7 +306,7 @@ export default function Programs() {
       </section>
 
       <section className="bg-white dark:bg-neutral-950 border-y border-gray-200 dark:border-neutral-800">
-        <div className="max-w-480 mx-auto w-full border-x border-gray-200 dark:border-neutral-800">
+        <div className="max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800">
           <div className="grid grid-cols-1 lg:grid-cols-12 border-b border-gray-200 dark:border-neutral-800">
             <div className="lg:col-span-4 p-6 sm:p-12 border-b lg:border-b-0 lg:border-r border-gray-200 dark:border-neutral-800 bg-hatching relative">
               <Reveal>
@@ -315,7 +315,7 @@ export default function Programs() {
                 </h2>
               </Reveal>
               <span
-                className="absolute bottom-2 right-4 text-[6rem] font-mono font-bold leading-none text-gray-100 dark:text-neutral-800 select-none pointer-events-none"
+                className="absolute bottom-2 right-4 text-[4rem] sm:text-[6rem] font-mono font-bold leading-none text-gray-100 dark:text-neutral-800 select-none pointer-events-none"
                 aria-hidden="true"
               >
                 02
@@ -376,7 +376,7 @@ export default function Programs() {
       </section>
 
       <section className="bg-white dark:bg-neutral-950 border-y border-gray-200 dark:border-neutral-800">
-        <div className="max-w-480 mx-auto w-full border-x border-gray-200 dark:border-neutral-800">
+        <div className="max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800">
           <div className="p-6 sm:p-12 border-b border-gray-200 dark:border-neutral-800 bg-hatching relative">
             <Reveal>
               <h2 className="text-sm font-mono uppercase tracking-wider text-gray-500 dark:text-neutral-400">
@@ -384,7 +384,7 @@ export default function Programs() {
               </h2>
             </Reveal>
             <span
-              className="absolute bottom-2 right-4 text-[6rem] font-mono font-bold leading-none text-gray-100 dark:text-neutral-800 select-none pointer-events-none"
+              className="absolute bottom-2 right-4 text-[4rem] sm:text-[6rem] font-mono font-bold leading-none text-gray-100 dark:text-neutral-800 select-none pointer-events-none"
               aria-hidden="true"
             >
               03
@@ -407,7 +407,7 @@ export default function Programs() {
             {certifications.map((cert, i) => (
               <StaggerItem key={cert.name}>
                 <div
-                  className={`p-6 sm:p-8 border-b sm:border-b-0 ${i < certifications.length - 1 ? "sm:border-r" : ""} ${i < 3 ? "sm:border-b lg:border-b" : ""} border-gray-200 dark:border-neutral-800 min-h-35 flex flex-col justify-between`}
+                  className={`p-6 sm:p-8 border-b sm:border-b-0 ${i % 2 === 0 ? "sm:border-r" : ""} ${i < 2 ? "sm:border-b" : ""} ${i % 3 !== 2 ? "lg:border-r" : "lg:border-r-0"} ${i < 3 ? "lg:border-b" : "lg:border-b-0"} border-gray-200 dark:border-neutral-800 min-h-35 flex flex-col justify-between`}
                 >
                   <div>
                     <span className="text-xs font-mono uppercase tracking-wider text-gray-400 dark:text-neutral-600 block mb-3">
@@ -426,7 +426,7 @@ export default function Programs() {
       </section>
 
       <section className="bg-white dark:bg-neutral-950 border-y border-gray-200 dark:border-neutral-800">
-        <div className="max-w-480 mx-auto w-full border-x border-gray-200 dark:border-neutral-800">
+        <div className="max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800">
           <div className="p-6 sm:p-12 lg:p-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
             <Reveal>
               <div>

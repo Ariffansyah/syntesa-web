@@ -23,7 +23,7 @@ export default function Partners({ partners }: PartnersProps) {
 
   return (
     <section className="bg-white dark:bg-neutral-950 border-y border-gray-200 dark:border-neutral-800">
-      <div className="max-w-480 mx-auto w-full border-x border-gray-200 dark:border-neutral-800">
+      <div className="max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800">
         <div
           ref={headerRef}
           className="grid grid-cols-1 lg:grid-cols-12 border-b border-gray-200 dark:border-neutral-800"
@@ -39,7 +39,7 @@ export default function Partners({ partners }: PartnersProps) {
               />
             </div>
             <span
-              className="absolute bottom-2 right-4 text-[6rem] font-mono font-bold leading-none text-gray-100 dark:text-neutral-800 select-none pointer-events-none"
+              className="absolute bottom-2 right-4 text-[4rem] sm:text-[6rem] font-mono font-bold leading-none text-gray-100 dark:text-neutral-800 select-none pointer-events-none"
               aria-hidden="true"
             >
               02
@@ -59,21 +59,21 @@ export default function Partners({ partners }: PartnersProps) {
 
         <div
           ref={marqueeRef}
-          className={`py-24 overflow-hidden relative transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isMarqueeInView ? "opacity-100" : "opacity-0"}`}
+          className={`py-12 sm:py-24 overflow-hidden relative transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isMarqueeInView ? "opacity-100" : "opacity-0"}`}
         >
           <div
             className="flex will-change-transform motion-safe:animate-[marquee-scroll_60s_linear_infinite]"
             style={{ width: "fit-content" }}
           >
             {[0, 1].map((half) => (
-              <div key={half} className="flex gap-24 items-center shrink-0 px-12">
+              <div key={half} className="flex gap-12 sm:gap-24 items-center shrink-0 px-6 sm:px-12">
                 {track.map((partner, index) => (
                   <div
                     // biome-ignore lint/suspicious/noArrayIndexKey: strictly for visual marquee
                     key={`partner-${half}-${index}`}
                     className="flex items-center justify-center shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
                   >
-                    <partner.icon className="w-16 h-16 text-gray-900 dark:text-neutral-100" />
+                    <partner.icon className="w-10 h-10 sm:w-16 sm:h-16 text-gray-900 dark:text-neutral-100" />
                   </div>
                 ))}
               </div>

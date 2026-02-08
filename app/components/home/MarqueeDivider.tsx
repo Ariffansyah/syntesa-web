@@ -21,7 +21,7 @@ export default function MarqueeDivider({
 
   return (
     <section className="bg-white dark:bg-neutral-950 border-y border-gray-200 dark:border-neutral-800 overflow-hidden">
-      <div className="max-w-480 mx-auto w-full border-x border-gray-200 dark:border-neutral-800">
+      <div className="max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800">
         <div
           ref={ref}
           className={`py-8 sm:py-12 overflow-hidden transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isInView ? "opacity-100" : "opacity-0"}`}

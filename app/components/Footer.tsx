@@ -18,11 +18,11 @@ export default function Footer({ socialLinks }: FooterProps) {
 
   return (
     <footer className="bg-white dark:bg-neutral-950 border-y border-gray-200 dark:border-neutral-800">
-      <div className="max-w-480 mx-auto w-full border-x border-gray-200 dark:border-neutral-800">
+      <div className="max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800">
         <div className="grid grid-cols-1 lg:grid-cols-2">
           <div
             ref={leftRef}
-            className="p-8 sm:p-12 lg:border-r border-gray-200 dark:border-neutral-800 flex flex-col justify-between min-h-75 bg-dot-grid"
+            className="p-6 sm:p-8 md:p-12 lg:border-r border-gray-200 dark:border-neutral-800 flex flex-col justify-between min-h-0 sm:min-h-75 bg-dot-grid"
           >
             <div>
               <div

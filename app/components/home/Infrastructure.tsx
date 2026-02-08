@@ -37,7 +37,7 @@ export default function Infrastructure({ specs }: InfrastructureProps) {
         +
       </span>
 
-      <div className="max-w-480 mx-auto w-full border-x border-gray-200 dark:border-neutral-800">
+      <div className="max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800">
         <div className="grid grid-cols-1 lg:grid-cols-12 border-b border-gray-200 dark:border-neutral-800">
           <div className="lg:col-span-4 p-6 sm:p-12 border-b lg:border-b-0 lg:border-r border-gray-200 dark:border-neutral-800 bg-hatching relative">
             <Reveal>
@@ -48,7 +48,7 @@ export default function Infrastructure({ specs }: InfrastructureProps) {
               />
             </Reveal>
             <span
-              className="absolute bottom-2 right-4 text-[6rem] font-mono font-bold leading-none text-gray-100 dark:text-neutral-800 select-none pointer-events-none"
+              className="absolute bottom-2 right-4 text-[4rem] sm:text-[6rem] font-mono font-bold leading-none text-gray-100 dark:text-neutral-800 select-none pointer-events-none"
               aria-hidden="true"
             >
               03

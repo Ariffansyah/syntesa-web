@@ -115,7 +115,7 @@ export default function About() {
           +
         </span>
 
-        <div className="max-w-480 mx-auto w-full border-x border-gray-200 dark:border-neutral-800">
+        <div className="max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800">
           <div className="grid grid-cols-1 lg:grid-cols-12">
             <div className="lg:col-span-7 p-6 sm:p-12 lg:p-16 border-b lg:border-b-0 lg:border-r border-gray-200 dark:border-neutral-800">
               <h1 className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-medium tracking-tight text-gray-900 dark:text-neutral-100 leading-[0.95]">
@@ -180,7 +180,7 @@ export default function About() {
               ].map((stat, i) => (
                 <div
                   key={stat.label}
-                  className={`p-6 sm:p-8 ${i < 3 ? "border-r border-gray-200 dark:border-neutral-800" : ""} ${i < 2 ? "border-b md:border-b-0 border-gray-200 dark:border-neutral-800" : ""}`}
+                  className={`p-6 sm:p-8 ${i % 2 === 0 ? "border-r border-gray-200 dark:border-neutral-800" : ""} ${i < 3 ? "md:border-r" : "md:border-r-0"} ${i < 2 ? "border-b md:border-b-0 border-gray-200 dark:border-neutral-800" : ""}`}
                 >
                   <span className="block text-xs uppercase tracking-wider text-gray-500 dark:text-neutral-400 font-mono mb-2">
                     {stat.label}
@@ -196,7 +196,7 @@ export default function About() {
       </section>
 
       <section className="bg-white dark:bg-neutral-950 border-y border-gray-200 dark:border-neutral-800">
-        <div className="max-w-480 mx-auto w-full border-x border-gray-200 dark:border-neutral-800">
+        <div className="max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800">
           <div className="grid grid-cols-1 lg:grid-cols-12">
             <div className="lg:col-span-4 p-6 sm:p-12 border-b lg:border-b-0 lg:border-r border-gray-200 dark:border-neutral-800 bg-hatching relative">
               <Reveal>
@@ -205,7 +205,7 @@ export default function About() {
                 </h2>
               </Reveal>
               <span
-                className="absolute bottom-2 right-4 text-[6rem] font-mono font-bold leading-none text-gray-100 dark:text-neutral-800 select-none pointer-events-none"
+                className="absolute bottom-2 right-4 text-[4rem] sm:text-[6rem] font-mono font-bold leading-none text-gray-100 dark:text-neutral-800 select-none pointer-events-none"
                 aria-hidden="true"
               >
                 01
@@ -231,7 +231,7 @@ export default function About() {
       </section>
 
       <section className="bg-white dark:bg-neutral-950 border-y border-gray-200 dark:border-neutral-800">
-        <div className="max-w-480 mx-auto w-full border-x border-gray-200 dark:border-neutral-800">
+        <div className="max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800">
           <div className="p-6 sm:p-12 border-b border-gray-200 dark:border-neutral-800 bg-hatching relative">
             <Reveal>
               <h2 className="text-sm font-mono uppercase tracking-wider text-gray-500 dark:text-neutral-400">
@@ -239,7 +239,7 @@ export default function About() {
               </h2>
             </Reveal>
             <span
-              className="absolute bottom-2 right-4 text-[6rem] font-mono font-bold leading-none text-gray-100 dark:text-neutral-800 select-none pointer-events-none"
+              className="absolute bottom-2 right-4 text-[4rem] sm:text-[6rem] font-mono font-bold leading-none text-gray-100 dark:text-neutral-800 select-none pointer-events-none"
               aria-hidden="true"
             >
               02
@@ -253,7 +253,7 @@ export default function About() {
             {values.map((value, i) => (
               <StaggerItem key={value.title}>
                 <div
-                  className={`p-6 sm:p-10 ${i < values.length - 1 ? "border-b md:border-b-0 md:border-r border-gray-200 dark:border-neutral-800" : ""} ${i === 1 ? "lg:border-r border-gray-200 dark:border-neutral-800" : ""} min-h-50 flex flex-col`}
+                  className={`p-6 sm:p-10 ${i < values.length - 1 ? "border-b md:border-b-0 md:border-r border-gray-200 dark:border-neutral-800" : ""} ${i === 1 ? "lg:border-r border-gray-200 dark:border-neutral-800" : ""} min-h-0 sm:min-h-50 flex flex-col`}
                 >
                   <span className="text-xs font-mono text-gray-400 dark:text-neutral-600 mb-4">
                     {(i + 1).toString().padStart(2, "0")}
@@ -272,7 +272,7 @@ export default function About() {
       </section>
 
       <section className="bg-white dark:bg-neutral-950 border-y border-gray-200 dark:border-neutral-800">
-        <div className="max-w-480 mx-auto w-full border-x border-gray-200 dark:border-neutral-800">
+        <div className="max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800">
           <div className="p-6 sm:p-12 border-b border-gray-200 dark:border-neutral-800 bg-hatching relative">
             <Reveal>
               <h2 className="text-sm font-mono uppercase tracking-wider text-gray-500 dark:text-neutral-400">
@@ -280,7 +280,7 @@ export default function About() {
               </h2>
             </Reveal>
             <span
-              className="absolute bottom-2 right-4 text-[6rem] font-mono font-bold leading-none text-gray-100 dark:text-neutral-800 select-none pointer-events-none"
+              className="absolute bottom-2 right-4 text-[4rem] sm:text-[6rem] font-mono font-bold leading-none text-gray-100 dark:text-neutral-800 select-none pointer-events-none"
               aria-hidden="true"
             >
               03
@@ -316,7 +316,7 @@ export default function About() {
       </section>
 
       <section className="bg-white dark:bg-neutral-950 border-y border-gray-200 dark:border-neutral-800">
-        <div className="max-w-480 mx-auto w-full border-x border-gray-200 dark:border-neutral-800">
+        <div className="max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800">
           <div className="grid grid-cols-1 lg:grid-cols-12 border-b border-gray-200 dark:border-neutral-800">
             <div className="lg:col-span-4 p-6 sm:p-12 border-b lg:border-b-0 lg:border-r border-gray-200 dark:border-neutral-800 bg-hatching relative">
               <Reveal>
@@ -325,7 +325,7 @@ export default function About() {
                 </h2>
               </Reveal>
               <span
-                className="absolute bottom-2 right-4 text-[6rem] font-mono font-bold leading-none text-gray-100 dark:text-neutral-800 select-none pointer-events-none"
+                className="absolute bottom-2 right-4 text-[4rem] sm:text-[6rem] font-mono font-bold leading-none text-gray-100 dark:text-neutral-800 select-none pointer-events-none"
                 aria-hidden="true"
               >
                 04
@@ -347,7 +347,7 @@ export default function About() {
                 <div
                   className={`grid grid-cols-1 sm:grid-cols-12 ${i < team.length - 1 ? "border-b border-gray-200 dark:border-neutral-800" : ""}`}
                 >
-                  <div className="sm:col-span-1 p-6 sm:p-8 sm:border-r border-gray-200 dark:border-neutral-800">
+                  <div className="sm:col-span-2 p-6 sm:p-8 sm:border-r border-gray-200 dark:border-neutral-800">
                     <span className="text-xs font-mono text-gray-400 dark:text-neutral-600">
                       {(i + 1).toString().padStart(2, "0")}
                     </span>
@@ -362,7 +362,7 @@ export default function About() {
                       {member.name}
                     </span>
                   </div>
-                  <div className="sm:col-span-4 p-6 sm:p-8">
+                  <div className="sm:col-span-3 p-6 sm:p-8">
                     <span className="text-sm text-gray-600 dark:text-neutral-400">
                       {member.focus}
                     </span>
@@ -375,7 +375,7 @@ export default function About() {
       </section>
 
       <section className="bg-white dark:bg-neutral-950 border-y border-gray-200 dark:border-neutral-800">
-        <div className="max-w-480 mx-auto w-full border-x border-gray-200 dark:border-neutral-800">
+        <div className="max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800">
           <div className="p-6 sm:p-12 lg:p-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
             <Reveal>
               <div>

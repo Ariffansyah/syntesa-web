@@ -62,7 +62,7 @@ export default function Hero({ socialLinks }: HeroProps) {
 
       <motion.div
         style={{ y, opacity }}
-        className="flex-1 max-w-480 mx-auto w-full border-x border-gray-200 dark:border-neutral-800 grid grid-cols-1 lg:grid-cols-12"
+        className="flex-1 max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800 grid grid-cols-1 lg:grid-cols-12"
       >
         <div className="lg:col-span-8 p-6 sm:p-12 lg:p-16 border-b lg:border-b-0 lg:border-r border-gray-200 dark:border-neutral-800 flex flex-col justify-between">
           <div>
