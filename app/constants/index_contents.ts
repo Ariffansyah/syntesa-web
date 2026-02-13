@@ -8,7 +8,14 @@ import {
   LuNetwork,
 } from "react-icons/lu";
 import { SiDatacamp, SiGooglecloud, SiJunipernetworks, SiRedhat } from "react-icons/si";
-import { bcaLogo, citilinkLogo, datacommLogo, superbankLogo } from "~/assets/intern-company";
+import {
+  bcaLogo,
+  citilinkLogo,
+  datacommLogo,
+  diskolaLogo,
+  dotLogo,
+  superbankLogo,
+} from "~/assets/intern-company";
 import type { TypeLabSpec } from "~/components/home/Infrastructure";
 import type { GroupName, TypeInterestGroup } from "~/components/home/InterestGroups";
 import type { TypePartner } from "~/components/home/Partners";
@@ -149,6 +156,22 @@ export const seniors: TypeSenior[] = [
     role: "Software Engineer",
     company: "Citilink",
     logo: citilinkLogo,
+    prodi: "Teknik Informatika",
+    batch: "2023",
+  },
+  {
+    name: "Afrizal Luthfi Eka Arnatha",
+    role: "Frontend Engineer",
+    company: "PT Era Baru Digitama",
+    logo: diskolaLogo,
+    prodi: "Teknik Informatika",
+    batch: "2023",
+  },
+  {
+    name: "Rayhan Hendra Atmadja",
+    role: "Backend Engineer",
+    company: "DOT Indonesia",
+    logo: dotLogo,
     prodi: "Teknik Informatika",
     batch: "2023",
   },
