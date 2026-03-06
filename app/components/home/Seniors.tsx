@@ -81,6 +81,11 @@ export default function Seniors({ seniors }: SeniorsProps) {
     <section
       aria-labelledby="placements-heading"
       className="relative bg-white dark:bg-neutral-950 border-t border-gray-200 dark:border-neutral-800 overflow-hidden"
+      style={{
+        contain: "layout style paint",
+        contentVisibility: "auto",
+        containIntrinsicSize: "auto 700px",
+      }}
     >
       <GradientOrb color="green" position="top-right" size="md" />
       <div className="max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800">
@@ -159,7 +164,7 @@ function SeniorCell({ senior }: { senior: TypeSenior }) {
   return (
     <article
       className={[
-        "group p-6 sm:p-10 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+        "group p-6 sm:p-10 transition-[background-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
         "w-75 sm:w-87.5 shrink-0",
         "hover:bg-gray-50 dark:hover:bg-neutral-900",
         "border-r border-gray-200 dark:border-neutral-800",
@@ -172,7 +177,7 @@ function SeniorCell({ senior }: { senior: TypeSenior }) {
         <img
           src={senior.logo}
           alt={senior.company}
-          className="h-10 w-10 object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
+          className="h-10 w-10 object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-[filter,opacity] duration-500"
           loading="lazy"
           draggable="false"
         />

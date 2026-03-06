@@ -54,6 +54,7 @@ export default function MissionStatement({ text = DEFAULT_TEXT }: MissionStateme
       ref={sectionRef}
       aria-labelledby="mission-heading"
       className="relative bg-white dark:bg-neutral-950 border-y border-gray-200 dark:border-neutral-800 overflow-hidden"
+      style={{ contain: "layout style paint" }}
     >
       <BackgroundGlow />
       <div className="max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800">

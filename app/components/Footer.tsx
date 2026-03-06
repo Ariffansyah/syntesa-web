@@ -26,7 +26,7 @@ export default function Footer({ socialLinks }: FooterProps) {
           >
             <div>
               <div
-                className={`transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isLeftInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                className={`transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isLeftInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
               >
                 <Link to="/" className="inline-block">
                   <img src={logoLight} alt="Syntesa" className="h-10 w-auto mb-3 dark:hidden" />
@@ -41,7 +41,7 @@ export default function Footer({ socialLinks }: FooterProps) {
                 </Link>
               </div>
               <div
-                className={`transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isLeftInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                className={`transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isLeftInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
                 style={{ transitionDelay: isLeftInView ? "100ms" : "0ms" }}
               >
                 <p className="mt-4 text-sm text-gray-500 dark:text-neutral-400 max-w-sm">
@@ -52,7 +52,7 @@ export default function Footer({ socialLinks }: FooterProps) {
             </div>
 
             <div
-              className={`mt-12 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isLeftInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+              className={`mt-12 transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isLeftInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
               style={{ transitionDelay: isLeftInView ? "200ms" : "0ms" }}
             >
               <small className="text-xs font-mono text-gray-400 dark:text-neutral-600 uppercase tracking-wider">
@@ -65,14 +65,14 @@ export default function Footer({ socialLinks }: FooterProps) {
           <div ref={rightRef} className="grid grid-cols-1 sm:grid-cols-2">
             <div className="p-8 sm:p-12 border-t lg:border-t-0 border-b sm:border-b-0 sm:border-r border-gray-200 dark:border-neutral-800">
               <div
-                className={`transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isRightInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                className={`transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isRightInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
               >
                 <h2 className="text-xs font-mono uppercase tracking-wider text-gray-500 dark:text-neutral-400 mb-8">
                   Location
                 </h2>
               </div>
               <div
-                className={`transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isRightInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                className={`transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isRightInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
                 style={{ transitionDelay: isRightInView ? "100ms" : "0ms" }}
               >
                 <div className="space-y-6">
@@ -105,7 +105,7 @@ export default function Footer({ socialLinks }: FooterProps) {
 
             <div className="p-8 sm:p-12 border-t lg:border-t-0 border-gray-200 dark:border-neutral-800">
               <div
-                className={`transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isRightInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                className={`transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isRightInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
                 style={{ transitionDelay: isRightInView ? "60ms" : "0ms" }}
               >
                 <h2 className="text-xs font-mono uppercase tracking-wider text-gray-500 dark:text-neutral-400 mb-8">
@@ -113,7 +113,7 @@ export default function Footer({ socialLinks }: FooterProps) {
                 </h2>
               </div>
               <div
-                className={`transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isRightInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                className={`transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isRightInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
                 style={{ transitionDelay: isRightInView ? "160ms" : "0ms" }}
               >
                 <div className="space-y-6">
@@ -138,7 +138,7 @@ export default function Footer({ socialLinks }: FooterProps) {
                             href={item.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`block text-gray-500 hover:text-gray-900 dark:text-neutral-400 dark:hover:text-apple-blue-400 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isRightInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                            className={`block text-gray-500 hover:text-gray-900 dark:text-neutral-400 dark:hover:text-apple-blue-400 transition-[opacity,transform,color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isRightInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
                             style={{ transitionDelay: isRightInView ? `${200 + i * 50}ms` : "0ms" }}
                             title={item.name}
                           >

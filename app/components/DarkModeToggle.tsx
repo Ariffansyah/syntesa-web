@@ -15,12 +15,12 @@ export default function DarkModeToggle() {
     >
       <div className="relative w-5 h-5 transition-transform duration-300" aria-hidden="true">
         <HiSun
-          className={`w-full h-full absolute inset-0 transition-all duration-300
+          className={`w-full h-full absolute inset-0 transition-[opacity,transform] duration-300
                          text-gray-900 dark:text-neutral-400
                          ${theme === "dark" ? "opacity-0 rotate-90 scale-50" : "opacity-100 rotate-0 scale-100"}`}
         />
         <HiMoon
-          className={`w-full h-full absolute inset-0 transition-all duration-300
+          className={`w-full h-full absolute inset-0 transition-[opacity,transform] duration-300
                          text-gray-900 dark:text-apple-blue-400
                         ${theme === "dark" ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-50"}`}
         />

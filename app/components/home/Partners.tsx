@@ -35,7 +35,7 @@ export default function Partners({ partners }: PartnersProps) {
         >
           <div className="lg:col-span-4 p-6 sm:p-12 border-b lg:border-b-0 lg:border-r border-gray-200 dark:border-neutral-800 bg-hatching relative">
             <div
-              className={`transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isHeaderInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+              className={`transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isHeaderInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
             >
               <ScrambleText
                 as="p"
@@ -52,7 +52,7 @@ export default function Partners({ partners }: PartnersProps) {
           </div>
           <div className="lg:col-span-8 p-6 sm:p-12">
             <div
-              className={`transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isHeaderInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+              className={`transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isHeaderInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
               style={{ transitionDelay: isHeaderInView ? "100ms" : "0ms" }}
             >
               <h2
@@ -87,7 +87,7 @@ export default function Partners({ partners }: PartnersProps) {
                   <li
                     // biome-ignore lint/suspicious/noArrayIndexKey: strictly for visual marquee
                     key={`partner-${half}-${index}`}
-                    className="flex items-center justify-center shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+                    className="flex items-center justify-center shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-[filter,opacity] duration-500"
                   >
                     <partner.icon
                       className="w-10 h-10 sm:w-16 sm:h-16 text-gray-900 dark:text-neutral-100"

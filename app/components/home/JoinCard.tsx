@@ -49,6 +49,11 @@ export default function JoinCard() {
     <section
       aria-labelledby="join-heading"
       className="relative bg-white dark:bg-neutral-950 border-y border-gray-200 dark:border-neutral-800 overflow-hidden"
+      style={{
+        contain: "layout style paint",
+        contentVisibility: "auto",
+        containIntrinsicSize: "auto 700px",
+      }}
     >
       <GradientOrb color="purple" position="bottom-right" size="lg" />
       <div className="max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800">
@@ -58,7 +63,7 @@ export default function JoinCard() {
         >
           <div className="lg:col-span-4 p-6 sm:p-12 border-b lg:border-b-0 lg:border-r border-gray-200 dark:border-neutral-800 bg-hatching relative">
             <div
-              className={`transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isHeaderInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+              className={`transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isHeaderInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
             >
               <ScrambleText
                 as="p"
@@ -75,7 +80,7 @@ export default function JoinCard() {
           </div>
           <div className="lg:col-span-8 p-6 sm:p-12">
             <div
-              className={`transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isHeaderInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+              className={`transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isHeaderInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
               style={{ transitionDelay: isHeaderInView ? "100ms" : "0ms" }}
             >
               <h2
@@ -92,7 +97,7 @@ export default function JoinCard() {
           <div ref={leftRef} className="lg:border-r border-gray-200 dark:border-neutral-800">
             <div className="p-6 sm:p-12 border-b border-gray-200 dark:border-neutral-800">
               <div
-                className={`transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isLeftInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                className={`transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isLeftInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
               >
                 <p className="text-lg text-gray-600 dark:text-neutral-400 font-light leading-relaxed mb-8">
                   Join a community of passionate developers, researchers, and innovators. Our lab
@@ -104,7 +109,7 @@ export default function JoinCard() {
                 {benefits.map((benefit, i) => (
                   <li
                     key={benefit.title}
-                    className={`flex items-start gap-4 py-5 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isLeftInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} ${i < benefits.length - 1 ? "border-b border-gray-100 dark:border-neutral-800/50" : ""}`}
+                    className={`flex items-start gap-4 py-5 transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isLeftInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} ${i < benefits.length - 1 ? "border-b border-gray-100 dark:border-neutral-800/50" : ""}`}
                     style={{ transitionDelay: isLeftInView ? `${(i + 1) * 80}ms` : "0ms" }}
                   >
                     <span
@@ -127,7 +132,7 @@ export default function JoinCard() {
             </div>
 
             <div
-              className={`p-6 sm:p-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isLeftInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+              className={`p-6 sm:p-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isLeftInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
               style={{ transitionDelay: isLeftInView ? "420ms" : "0ms" }}
             >
               <div>
@@ -161,7 +166,7 @@ export default function JoinCard() {
 
           <div ref={rightRef} className="p-6 sm:p-12 bg-dot-grid">
             <div
-              className={`transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isRightInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+              className={`transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isRightInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
             >
               <h3 className="text-xs font-mono uppercase tracking-wider text-gray-500 dark:text-neutral-400 mb-8">
                 Frequently Asked Questions
@@ -172,7 +177,7 @@ export default function JoinCard() {
               {faqs.map((faq, i) => (
                 <div
                   key={faq.question}
-                  className={`transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isRightInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                  className={`transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isRightInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
                   style={{ transitionDelay: isRightInView ? `${(i + 1) * 100}ms` : "0ms" }}
                 >
                   <FAQItem

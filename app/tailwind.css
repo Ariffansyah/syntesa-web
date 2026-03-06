@@ -161,10 +161,10 @@ html.lenis body {
 @keyframes bounce-gentle {
   0%,
   100% {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translateY(8px);
+    transform: translate3d(0, 8px, 0);
   }
 }
 
@@ -179,14 +179,14 @@ html.lenis body {
 
 @keyframes slide-up {
   to {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes fade-up {
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -199,22 +199,22 @@ html.lenis body {
 @keyframes menu-slide-up {
   from {
     opacity: 0;
-    transform: translateY(100%);
+    transform: translate3d(0, 100%, 0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes menu-fade-up {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translate3d(0, 12px, 0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 

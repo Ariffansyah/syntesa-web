@@ -116,7 +116,7 @@ export default function Hero({ socialLinks }: HeroProps) {
               opacity: prefersReducedMotion ? 1 : 0,
             }}
           >
-            <div className="motion-safe:animate-[bounce-gentle_2s_ease-in-out_infinite]">
+            <div className="motion-safe:animate-[bounce-gentle_2s_ease-in-out_infinite] will-change-transform">
               <BsArrowDownRight
                 className="w-6 h-6 text-gray-400 dark:text-neutral-600"
                 aria-hidden="true"

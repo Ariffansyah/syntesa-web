@@ -24,6 +24,11 @@ export default function Infrastructure({ specs }: InfrastructureProps) {
     <section
       aria-labelledby="infrastructure-heading"
       className="relative bg-white dark:bg-neutral-950 border-y border-gray-200 dark:border-neutral-800 overflow-hidden"
+      style={{
+        contain: "layout style paint",
+        contentVisibility: "auto",
+        containIntrinsicSize: "auto 600px",
+      }}
     >
       <GradientOrb color="orange" position="bottom-left" size="lg" />
 
@@ -92,7 +97,7 @@ function SpecCell({
     <div
       className={[
         "p-6 sm:p-8 lg:p-10",
-        "transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+        "transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5",
         isLeftInPair ? "border-r border-gray-200 dark:border-neutral-800" : "",
         !isLastRow2 ? "border-b border-gray-200 dark:border-neutral-800" : "",

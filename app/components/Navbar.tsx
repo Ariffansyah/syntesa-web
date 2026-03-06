@@ -21,11 +21,28 @@ const navItems = [
 export default function Navbar({ socialLinks }: NavbarProps) {
   const discordLink = socialLinks.find((link) => link.name === "Discord");
   const { pathname } = useLocation();
-  const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const lastY = useRef(0);
+  const hiddenRef = useRef(false);
+  const menuOpenRef = useRef(false);
+  const navRef = useRef<HTMLElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
+
+  const applyNavTransform = useCallback(() => {
+    const nav = navRef.current;
+    if (!nav) return;
+    if (hiddenRef.current && !menuOpenRef.current) {
+      nav.style.transform = "translateY(-100%)";
+    } else {
+      nav.style.transform = "translateY(0)";
+    }
+  }, []);
+
+  useEffect(() => {
+    menuOpenRef.current = menuOpen;
+    applyNavTransform();
+  }, [menuOpen, applyNavTransform]);
 
   useEffect(() => {
     function onScroll() {
@@ -34,21 +51,29 @@ export default function Navbar({ socialLinks }: NavbarProps) {
       lastY.current = y;
 
       if (y < 80) {
-        setHidden(false);
+        if (hiddenRef.current) {
+          hiddenRef.current = false;
+          applyNavTransform();
+        }
         return;
       }
 
       if (diff > 5) {
-        setHidden(true);
-        setMenuOpen(false);
+        const wasHidden = hiddenRef.current;
+        hiddenRef.current = true;
+        if (!wasHidden) applyNavTransform();
+        if (menuOpenRef.current) setMenuOpen(false);
       } else if (diff < -5) {
-        setHidden(false);
+        if (hiddenRef.current) {
+          hiddenRef.current = false;
+          applyNavTransform();
+        }
       }
     }
 
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [applyNavTransform]);
 
   useEffect(() => {
     if (menuOpen) {
@@ -114,8 +139,9 @@ export default function Navbar({ socialLinks }: NavbarProps) {
     <>
       <header>
         <nav
+          ref={navRef}
           aria-label="Main"
-          className={`fixed w-full top-0 z-50 bg-white dark:bg-neutral-950 border-b border-gray-200 dark:border-neutral-800 transition-transform duration-350 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${hidden && !menuOpen ? "-translate-y-full" : "translate-y-0"}`}
+          className="fixed w-full top-0 z-50 bg-white dark:bg-neutral-950 border-b border-gray-200 dark:border-neutral-800 transition-transform duration-350 ease-[cubic-bezier(0.25,0.1,0.25,1)]"
         >
           <div className="max-w-480 mx-auto w-full sm:border-x border-gray-200 dark:border-neutral-800">
             <div className="flex items-center justify-between h-16 sm:h-20 px-4 sm:px-6 md:px-12">
@@ -180,11 +206,11 @@ export default function Navbar({ socialLinks }: NavbarProps) {
                     aria-controls="mobile-menu"
                   >
                     <span
-                      className={`block w-5 h-px bg-gray-900 dark:bg-neutral-100 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] origin-center ${menuOpen ? "rotate-45 translate-y-[3.5px] w-6" : ""}`}
+                      className={`block w-5 h-px bg-gray-900 dark:bg-neutral-100 transition-[transform,width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] origin-center ${menuOpen ? "rotate-45 translate-y-[3.5px] w-6" : ""}`}
                       aria-hidden="true"
                     />
                     <span
-                      className={`block w-5 h-px bg-gray-900 dark:bg-neutral-100 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] origin-center ${menuOpen ? "-rotate-45 -translate-y-[3.5px] w-6" : ""}`}
+                      className={`block w-5 h-px bg-gray-900 dark:bg-neutral-100 transition-[transform,width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] origin-center ${menuOpen ? "-rotate-45 -translate-y-[3.5px] w-6" : ""}`}
                       aria-hidden="true"
                     />
                   </button>
@@ -201,7 +227,7 @@ export default function Navbar({ socialLinks }: NavbarProps) {
         role="dialog"
         aria-modal={menuOpen}
         aria-label="Navigation menu"
-        className={`fixed inset-0 z-40 md:hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
+        className={`fixed inset-0 z-40 md:hidden transition-[opacity,visibility] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
         onKeyDown={handleMenuKeyDown}
       >
         <div className="absolute inset-0 bg-white dark:bg-neutral-950 bg-dot-grid" />
@@ -218,7 +244,7 @@ export default function Navbar({ socialLinks }: NavbarProps) {
                       <Link
                         to={item.to}
                         onClick={() => setMenuOpen(false)}
-                        className={`group flex items-center gap-4 sm:gap-6 py-3 transition-all duration-300 ${menuOpen ? "animate-[menu-slide-up_0.5s_cubic-bezier(0.22,1,0.36,1)_forwards]" : ""}`}
+                        className={`group flex items-center gap-4 sm:gap-6 py-3 transition-[opacity,transform,color] duration-300 ${menuOpen ? "animate-[menu-slide-up_0.5s_cubic-bezier(0.22,1,0.36,1)_forwards]" : ""}`}
                         style={{
                           animationDelay: menuOpen ? `${150 + i * 80}ms` : "0ms",
                           opacity: menuOpen ? 0 : undefined,
@@ -231,7 +257,7 @@ export default function Navbar({ socialLinks }: NavbarProps) {
 
                         <span className="relative">
                           <span
-                            className={`block text-4xl sm:text-5xl font-medium tracking-tight transition-all duration-300 group-hover:translate-x-2 ${
+                            className={`block text-4xl sm:text-5xl font-medium tracking-tight transition-[transform,color] duration-300 group-hover:translate-x-2 ${
                               isActive
                                 ? "text-gray-900 dark:text-neutral-100"
                                 : "text-gray-400 dark:text-neutral-600 group-hover:text-gray-900 dark:group-hover:text-neutral-100"
@@ -257,7 +283,7 @@ export default function Navbar({ socialLinks }: NavbarProps) {
           </div>
 
           <div
-            className={`border-t border-gray-200 dark:border-neutral-800 px-6 sm:px-10 py-6 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? "animate-[menu-fade-up_0.6s_cubic-bezier(0.22,1,0.36,1)_0.4s_forwards]" : ""}`}
+            className={`border-t border-gray-200 dark:border-neutral-800 px-6 sm:px-10 py-6 transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? "animate-[menu-fade-up_0.6s_cubic-bezier(0.22,1,0.36,1)_0.4s_forwards]" : ""}`}
             style={{
               opacity: menuOpen ? 0 : undefined,
             }}
@@ -278,7 +304,7 @@ export default function Navbar({ socialLinks }: NavbarProps) {
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`block text-gray-400 dark:text-neutral-600 hover:text-gray-900 dark:hover:text-apple-blue-400 transition-all duration-300 ${menuOpen ? "animate-[menu-fade-up_0.4s_cubic-bezier(0.22,1,0.36,1)_forwards]" : ""}`}
+                      className={`block text-gray-400 dark:text-neutral-600 hover:text-gray-900 dark:hover:text-apple-blue-400 transition-[color,opacity] duration-300 ${menuOpen ? "animate-[menu-fade-up_0.4s_cubic-bezier(0.22,1,0.36,1)_forwards]" : ""}`}
                       style={{
                         animationDelay: menuOpen ? `${500 + i * 60}ms` : "0ms",
                         opacity: menuOpen ? 0 : undefined,
